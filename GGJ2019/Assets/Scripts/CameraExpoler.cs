@@ -1,14 +1,20 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Cinemachine;
 
 public class CameraExpoler : MonoBehaviour {
 
 	public Transform Camera;
-	public float speed;
+	public float m_Speed;
 	public float RayCastLengh;
 	public LayerMask mask;
 	public float hitDis;
+	public CinemachineDollyCart Dolly;
+	public float position;
+	public float OutSide;
+	public Rect rect ;
+
 	// Use this for initialization
 	void Start () {
 		
@@ -17,38 +23,26 @@ public class CameraExpoler : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 		
-		
+		rect = new Rect (new Vector2(Screen.width/2,Screen.height/2),new Vector2(Screen.width-OutSide,Screen.height-OutSide));
 
-		
+		if (rect.Contains(Input.mousePosition))
+			Debug.Log("Inside");
+	
+	
+
+
+
+			Dolly.m_Position = position;
+	
 
 	}
 
-	void FixedUpdate()
-	{
-		Vector3 fwd = Camera.TransformDirection(Vector3.forward);
-		RaycastHit hit;
-
-
-		if (Input.GetMouseButton (1)) {
-
-
-
-			if (Physics.Raycast (Camera.position, fwd, out hit, RayCastLengh, mask)) {
-			
-				hitDis = Vector3.Distance (Camera.position, hit.point);
-				transform.position += Camera.forward.normalized * Time.deltaTime * speed * (hitDis / RayCastLengh);
-
-			} else {
-		
-				transform.position += Camera.forward.normalized * Time.deltaTime * speed;
-		
-			}
-
-		}
 
 
 
 
-		Debug.DrawRay(Camera.position,fwd,Color.green,RayCastLengh);
-	}
+	public Texture myTexture;
+
+
+
 }
