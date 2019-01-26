@@ -33,13 +33,13 @@ public class createAMA : MonoBehaviour {
 	public void setAns(){
 		cam.SetActive(false);
 		int temp = UnityEngine.Random.Range (0, people.Length);
-		GameObject go = gameObject.transform.GetChild(temp).gameObject ;
+		//GameObject go = gameObject.transform.GetChild(temp).gameObject.GetComponent<people_hit>().getBefound() ;
 		//print ("test" + go.name);
-		people_hit ph = go.GetComponent<people_hit> ();
-		while(ph.getBefound()){
+		//people_hit ph = go.GetComponent<people_hit> ();
+		while(gameObject.transform.GetChild(temp).gameObject.GetComponent<people_hit>().getBefound()){
 			temp = UnityEngine.Random.Range (0, people.Length);
-			go = gameObject.transform.GetChild(temp).gameObject ;
-			ph = go.GetComponent<people_hit> ();
+			//go = gameObject.transform.GetChild(temp).gameObject ;
+			//ph = go.GetComponent<people_hit> ();
 		}
 		AMA_Ans = temp;
 		//print (AMA_Ans);
