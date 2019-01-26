@@ -59,7 +59,7 @@ public class GameCtrl : MonoBehaviour {
         temCount = 1;
         SpeedUp = false;
         Bonus = 0;
-        MaxPeople = 1;//createAMA.instance.people.Length;
+        MaxPeople = createAMA.instance.people.Length;
     }
 	
 	// Update is called once per frame
@@ -94,7 +94,7 @@ public class GameCtrl : MonoBehaviour {
                 AMA_text.text = "Capture : " + (AMAcount - temCount/5);
                 StartCoroutine(Result(0.5f));
                 AS.Stop();
-
+                
 
             }
 
@@ -125,7 +125,7 @@ public class GameCtrl : MonoBehaviour {
         replay.SetActive(true);
         BG.SetActive(true);
         AS.clip = GetResult;
-        AS.pitch = 1;
+        AS.pitch = 1.3f;
         AS.loop = true;
         AS.Play();
         Time.timeScale = 1;
@@ -149,10 +149,10 @@ public class GameCtrl : MonoBehaviour {
                 Time.timeScale = 4;
                 BG.SetActive(true);
                 AS.clip = GetResult;
-                AS.pitch = 1f;
+                AS.pitch = 1.5f;
                 AS.loop = true;
                 AS.Play();
-
+                
             }
         }
     }
