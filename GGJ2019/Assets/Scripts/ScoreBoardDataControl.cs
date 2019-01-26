@@ -33,10 +33,10 @@ public class ScoreBoardDataControl : MonoBehaviour
     void LoadData()
     {
         //如果檔案存在(表示不是第一次開啟遊戲)
-        if (File.Exists(Application.dataPath + "/scoreInfo.dat"))
+        if (File.Exists(Application.persistentDataPath + "/scoreInfo.dat"))
         {
             BinaryFormatter bf = new BinaryFormatter();
-            FileStream file = File.Open(Application.dataPath + "/scoreInfo.dat", FileMode.Open);
+            FileStream file = File.Open(Application.persistentDataPath + "/scoreInfo.dat", FileMode.Open);
 
             //把裝置中的二進位檔案反序列化，存入data變數中
             data = (ScoreData)bf.Deserialize(file);
@@ -66,7 +66,7 @@ public class ScoreBoardDataControl : MonoBehaviour
         BinaryFormatter bf = new BinaryFormatter();
 
         //新增檔案
-        FileStream file = File.Create(Application.dataPath + "/scoreInfo.dat");
+        FileStream file = File.Create(Application.persistentDataPath + "/scoreInfo.dat");
 
         //序列化，存入裝置
         bf.Serialize(file, data);
@@ -109,7 +109,7 @@ public class ScoreBoardDataControl : MonoBehaviour
     }
     public void DeleteDat()
     {
-        File.Delete(Application.dataPath + "/scoreInfo.dat");
+        File.Delete(Application.persistentDataPath + "/scoreInfo.dat");
         InitData(); //初始化資料
         SaveData(); //儲入裝置
     }
