@@ -91,7 +91,7 @@ GameObject:
   - component: {fileID: 23842466071766938}
   - component: {fileID: 54498121136380050}
   - component: {fileID: 65182551636565364}
-  - component: {fileID: 114005186157191760}
+  - component: {fileID: 114942050660904362}
   - component: {fileID: 114437122501820650}
   m_Layer: 0
   m_Name: SM_Veh_Car_Small_01
@@ -603,7 +603,7 @@ Rigidbody:
   m_UseGravity: 0
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 0
+  m_Constraints: 112
   m_CollisionDetection: 0
 --- !u!65 &65182551636565364
 BoxCollider:
@@ -617,21 +617,6 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 2.0683348, y: 1.5729153, z: 4.074531}
   m_Center: {x: -0.012611389, y: 0.9477265, z: 0.12095243}
---- !u!114 &114005186157191760
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1571434494802378}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fbd76096c64389d40b3b7e2eb76170ba, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Speed: 40
-  moveing: 0
-  dollyCart: {fileID: 114437122501820650}
-  RecyclePosition: 860
 --- !u!114 &114437122501820650
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -648,3 +633,18 @@ MonoBehaviour:
   m_PositionUnits: 1
   m_Speed: 10
   m_Position: 0
+--- !u!114 &114942050660904362
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1571434494802378}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f6cd7175447c2364a9b2a8c62cb65434, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Speed: 40
+  moveing: 0
+  dollyCart: {fileID: 114437122501820650}
+  RecyclePosition: 860

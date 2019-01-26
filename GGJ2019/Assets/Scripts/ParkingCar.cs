@@ -24,7 +24,7 @@ public class ParkingCar : Car {
         }
         if (!moveing && !changePathalready)
         {
-            Ray ray = new Ray(transform.position, transform.forward * 16);
+            Ray ray = new Ray(transform.position, transform.forward * 30);
            
             RaycastHit hitInfo;
             Debug.DrawRay(transform.position, transform.forward * 10, Color.green);
@@ -36,6 +36,7 @@ public class ParkingCar : Car {
                     dollyCart.m_Speed = 0;
                     moveing = true;
                     Invoke("ContinueMove", 2);
+
                 }
                 else
                 {
@@ -56,6 +57,7 @@ public class ParkingCar : Car {
     }
     void ContinueMove()
     {
+        dollyCart.m_Speed = 10;
         moveing = false;
     }
     private void OnCollisionEnter(Collision collision)
@@ -83,7 +85,7 @@ public class ParkingCar : Car {
         dollyCart.m_Speed = 10;
         while (dollyCart.m_Position < 275)
         {
-            Ray ray = new Ray(transform.position, transform.forward * 10);
+            Ray ray = new Ray(transform.position, transform.forward * 30);
             RaycastHit hitInfo;
             Debug.DrawRay(transform.position, transform.forward * 10, Color.green);
             if (Physics.Raycast(ray, out hitInfo))
@@ -93,10 +95,12 @@ public class ParkingCar : Car {
                     print("前面有車");
                     dollyCart.m_Speed = 0;
                     moveing = true;
-                    Invoke("ContinueMove", 2);
+                    Invoke("ContinueMove", 1);
                 }
                 else
-                { }
+                {
+                    dollyCart.m_Speed = 10;
+                }
             }
             yield return new WaitForFixedUpdate();
         }

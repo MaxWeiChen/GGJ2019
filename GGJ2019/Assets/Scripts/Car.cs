@@ -26,7 +26,7 @@ public class Car : MonoBehaviour {
         }
         if (!moveing)
         {
-            Ray ray = new Ray(transform.position, transform.forward * 16);
+            Ray ray = new Ray(transform.position, transform.forward *30);
             RaycastHit hitInfo;
             Debug.DrawRay(transform.position, transform.forward * 10, Color.green);
             if (Physics.Raycast(ray, out hitInfo))
@@ -36,7 +36,7 @@ public class Car : MonoBehaviour {
                     print("前面有車");
                     dollyCart.m_Speed = 0;
                     moveing = true;
-                    Invoke("ContinueMove", 2);
+                    Invoke("ContinueMove", 1);
                 }
                 else
                 {
@@ -58,6 +58,7 @@ public class Car : MonoBehaviour {
    void ContinueMove()
     {
         moveing = false;
+        dollyCart.m_Speed = 10;
     }
     private void OnCollisionEnter(Collision collision)
     {

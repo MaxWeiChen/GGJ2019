@@ -40,7 +40,7 @@ GameObject:
   - component: {fileID: 23147443342336654}
   - component: {fileID: 54069279034525966}
   - component: {fileID: 65346776040732110}
-  - component: {fileID: 114412965827162144}
+  - component: {fileID: 114328386538769368}
   - component: {fileID: 114699963841104112}
   m_Layer: 0
   m_Name: SM_Veh_Car_Ambo_01
@@ -891,7 +891,7 @@ Rigidbody:
   m_UseGravity: 0
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 0
+  m_Constraints: 112
   m_CollisionDetection: 0
 --- !u!65 &65346776040732110
 BoxCollider:
@@ -905,7 +905,7 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 2.472612, y: 2.3723326, z: 5.0940275}
   m_Center: {x: 0, y: 1.396498, z: 0.13655901}
---- !u!114 &114412965827162144
+--- !u!114 &114328386538769368
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -913,7 +913,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1158789434610472}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fbd76096c64389d40b3b7e2eb76170ba, type: 3}
+  m_Script: {fileID: 11500000, guid: f6cd7175447c2364a9b2a8c62cb65434, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   Speed: 40

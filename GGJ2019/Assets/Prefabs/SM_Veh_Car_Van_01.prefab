@@ -159,7 +159,7 @@ GameObject:
   - component: {fileID: 23444402103318552}
   - component: {fileID: 54643700695488538}
   - component: {fileID: 65232152082162602}
-  - component: {fileID: 114639906748142048}
+  - component: {fileID: 114735868370884288}
   - component: {fileID: 114925840680427724}
   m_Layer: 0
   m_Name: SM_Veh_Car_Van_01
@@ -891,7 +891,7 @@ Rigidbody:
   m_UseGravity: 0
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 0
+  m_Constraints: 112
   m_CollisionDetection: 0
 --- !u!65 &65232152082162602
 BoxCollider:
@@ -905,7 +905,7 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 2.4726095, y: 1.7831537, z: 5.019348}
   m_Center: {x: -0.000000059604645, y: 1.1358304, z: 0.08672106}
---- !u!114 &114639906748142048
+--- !u!114 &114735868370884288
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -913,7 +913,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1731182817099986}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fbd76096c64389d40b3b7e2eb76170ba, type: 3}
+  m_Script: {fileID: 11500000, guid: f6cd7175447c2364a9b2a8c62cb65434, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   Speed: 40
