@@ -20,7 +20,7 @@ public class GameCtrl : MonoBehaviour {
     public Text Score_text;
     int temCount;
     int Bonus;
-    int MaxPeople = createAMA.instance.people.Length;
+    int MaxPeople;
 
 
 
@@ -56,9 +56,10 @@ public class GameCtrl : MonoBehaviour {
         BG = GameObject.Find("BackGround");
         BG.SetActive(false);
 
-        temCount = 0;
+        temCount = 1;
         SpeedUp = false;
         Bonus = 0;
+        MaxPeople = 1;//createAMA.instance.people.Length;
     }
 	
 	// Update is called once per frame
@@ -69,7 +70,7 @@ public class GameCtrl : MonoBehaviour {
             AMA_text.text = "Capture : " + AMAcount;
             if (complete)
             {
-                Bonus = Bonus + (int)(Time.deltaTime*200);
+                Bonus = Bonus + (int)(Time.deltaTime*100);
                 Score_text.text = "Bonus: $" + Bonus;
             }
         }
@@ -147,6 +148,11 @@ public class GameCtrl : MonoBehaviour {
                 complete = true;
                 Time.timeScale = 4;
                 BG.SetActive(true);
+                AS.clip = GetResult;
+                AS.pitch = 1f;
+                AS.loop = true;
+                AS.Play();
+
             }
         }
     }
