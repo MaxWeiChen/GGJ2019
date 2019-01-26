@@ -7,6 +7,7 @@ public class Car : MonoBehaviour {
     public bool moveing = false;
     private Rigidbody carRigidbody;
     public CinemachineDollyCart dollyCart;
+    
     public float RecyclePosition = 860;//1014;
     // Use this for initialization
     void Start () {
@@ -20,20 +21,22 @@ public class Car : MonoBehaviour {
 	void Update () {
         if(dollyCart.m_Position >= RecyclePosition)
         {
-            
             CarManager.instance.Recovery(gameObject);
             print("回收");
         }
         if (!moveing)
         {
-            Ray ray = new Ray(transform.position, transform.forward * 10);
+            Ray ray = new Ray(transform.position, transform.forward * 16);
             RaycastHit hitInfo;
             Debug.DrawRay(transform.position, transform.forward * 10, Color.green);
             if (Physics.Raycast(ray, out hitInfo))
             {
                 if (hitInfo.collider.tag == "Human" || hitInfo.collider.tag == "Car")
                 {
+                    print("前面有車");
                     dollyCart.m_Speed = 0;
+                    moveing = true;
+                    Invoke("ContinueMove", 2);
                 }
                 else
                 {
@@ -52,7 +55,10 @@ public class Car : MonoBehaviour {
         }
 
     }
-   
+   void ContinueMove()
+    {
+        moveing = false;
+    }
     private void OnCollisionEnter(Collision collision)
     {
         if (collision.collider.name == "Block")
