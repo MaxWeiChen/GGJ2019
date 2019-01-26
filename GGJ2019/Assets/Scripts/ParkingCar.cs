@@ -24,15 +24,14 @@ public class ParkingCar : Car {
         }
         if (!moveing && !changePathalready)
         {
-            Ray ray = new Ray(transform.position, transform.forward * 30);
-           
-            RaycastHit hitInfo;
-            Debug.DrawRay(transform.position, transform.forward * 10, Color.green);
-            if (Physics.Raycast(ray, out hitInfo))
+            Ray ray = new Ray(transform.position + transform.up + (transform.forward * 3), transform.forward * 5);
+            RaycastHit hitInfo = new RaycastHit() ;
+            Debug.DrawRay(transform.position + transform.up + (transform.forward*3), transform.forward * 5, Color.green);
+            if (Physics.Raycast(ray, out hitInfo, 10))
             {
                 if (hitInfo.collider.tag == "Human" || hitInfo.collider.tag == "Car")
                 {
-                    print("前面有車");
+                   
                     dollyCart.m_Speed = 0;
                     moveing = true;
                     Invoke("ContinueMove", 2);
@@ -69,6 +68,7 @@ public class ParkingCar : Car {
     }
     IEnumerator RBack()
     {
+        print("cc");
         dollyCart.m_Speed = 0;
         for (int i = 0; i < 3; i++)
         {

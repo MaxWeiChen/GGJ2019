@@ -26,14 +26,15 @@ public class Car : MonoBehaviour {
         }
         if (!moveing)
         {
-            Ray ray = new Ray(transform.position, transform.forward *30);
+            Ray ray = new Ray(transform.position + transform.up + (transform.forward * 3), transform.forward *5);
             RaycastHit hitInfo;
-            Debug.DrawRay(transform.position, transform.forward * 10, Color.green);
-            if (Physics.Raycast(ray, out hitInfo))
+            Debug.DrawRay(transform.position + transform.up + (transform.forward * 3), transform.forward * 5, Color.green);
+            if (Physics.Raycast(ray, out hitInfo,10))
             {
                 if (hitInfo.collider.tag == "Human" || hitInfo.collider.tag == "Car")
                 {
-                    print("前面有車");
+                    print(hitInfo.collider.name);
+                   
                     dollyCart.m_Speed = 0;
                     moveing = true;
                     Invoke("ContinueMove", 1);
