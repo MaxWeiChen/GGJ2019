@@ -51,6 +51,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+     <Compile Include="Assets\Amas\Editor\AmaCreater.cs" />
      <Compile Include="Assets\Cinemachine\Base\Editor\Editors\CinemachineBasicMultiChannelPerlinEditor.cs" />
      <Compile Include="Assets\Cinemachine\Base\Editor\Editors\CinemachineBlenderSettingsEditor.cs" />
      <Compile Include="Assets\Cinemachine\Base\Editor\Editors\CinemachineBlendListCameraEditor.cs" />
