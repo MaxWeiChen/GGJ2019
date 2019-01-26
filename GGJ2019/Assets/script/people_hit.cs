@@ -18,6 +18,8 @@ public class people_hit : MonoBehaviour {
 	}
 	void hit(){
 		if (!jump && CA.getAns() == num) {
+            //GameObject ama = GameObject.Find("Main Camera");
+            GameObject.Find("Main Camera").GetComponent<GameCtrl>().AddAMA();
 			jump = true ;
 			print (gameObject.name);
 			Rigidbody rig = gameObject.GetComponent<Rigidbody> ();
