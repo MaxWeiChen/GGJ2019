@@ -785,29 +785,29 @@ MonoBehaviour:
     width: 0.2
   m_Looped: 0
   m_Waypoints:
-  - position: {x: -143.49509, y: 0, z: 37.085037}
+  - position: {x: -145, y: 0, z: 35}
     tangent: {x: 0, y: 0, z: 0}
     roll: 0
-  - position: {x: -160.61484, y: 0, z: 37.085037}
-    tangent: {x: -5.3139496, y: 0, z: 0}
+  - position: {x: -160, y: 0, z: 35}
+    tangent: {x: -5, y: 0, z: 0}
     roll: 0
-  - position: {x: -164.52603, y: 0, z: 44.92464}
-    tangent: {x: -2.3412628, y: 0, z: 1.2476158}
+  - position: {x: -165, y: 0, z: 46}
+    tangent: {x: -5, y: 0, z: 0}
     roll: 0
-  - position: {x: -186.01225, y: 0, z: 46.172256}
-    tangent: {x: -5.745331, y: 0, z: -0.7711334}
+  - position: {x: -186, y: 0, z: 46}
+    tangent: {x: -5, y: 0, z: 0}
     roll: 0
-  - position: {x: -189.31343, y: 0, z: 33.66015}
-    tangent: {x: 0.27944946, y: 0, z: -0.3119278}
+  - position: {x: -190, y: 0, z: 35}
+    tangent: {x: 0, y: 0, z: 0}
     roll: 0
-  - position: {x: -189.48091, y: 0, z: 9.679793}
-    tangent: {x: -0.33061218, y: 0, z: -1.5577059}
+  - position: {x: -190, y: 0, z: 10}
+    tangent: {x: 0, y: 0, z: -4}
     roll: 0
-  - position: {x: -184.93816, y: 0, z: 6.260789}
-    tangent: {x: 2.8027344, y: 0, z: -0.06183386}
+  - position: {x: -180, y: 0, z: 6}
+    tangent: {x: 3, y: 0, z: 0}
     roll: 0
-  - position: {x: 0.47080994, y: 0, z: 6.198955}
-    tangent: {x: 5.36763, y: 0, z: -0.06183386}
+  - position: {x: 0, y: 0, z: 6}
+    tangent: {x: 5, y: 0, z: 0}
     roll: 0
 --- !u!114 &114214207445257676
 MonoBehaviour:
@@ -828,64 +828,76 @@ MonoBehaviour:
   m_Looped: 0
   m_Waypoints:
   - position: {x: 0, y: 0, z: 0}
-    tangent: {x: 1.5466614, y: 0, z: 8.816183}
+    tangent: {x: 0, y: 0, z: 6}
     roll: 0
-  - position: {x: 86.5294, y: 0, z: 4.9518547}
-    tangent: {x: 65.97214, y: 0, z: 0}
+  - position: {x: 12, y: 0, z: 5}
+    tangent: {x: 0, y: 0, z: 0}
     roll: 0
-  - position: {x: 156.9264, y: 0, z: 5.0563927}
-    tangent: {x: 1.5466614, y: 0, z: 0}
+  - position: {x: 245, y: 0, z: 5}
+    tangent: {x: 0, y: 0, z: 0}
     roll: 0
-  - position: {x: 250.8971, y: 0, z: 5.3092117}
-    tangent: {x: 2.933319, y: 0, z: 0}
+  - position: {x: 252, y: 0, z: 15}
+    tangent: {x: 0, y: 0, z: 10}
     roll: 0
-  - position: {x: 251.73541, y: 0, z: 39.99122}
-    tangent: {x: 0.4564209, y: 0, z: 0}
+  - position: {x: 252, y: 0, z: 63}
+    tangent: {x: 0, y: 0, z: 0}
     roll: 0
-  - position: {x: 251.4841, y: 0, z: 69.399826}
-    tangent: {x: 0.4564209, y: 0, z: 0}
+  - position: {x: 252, y: 0, z: 70}
+    tangent: {x: 0, y: 0, z: 3}
     roll: 0
-  - position: {x: 256.99847, y: 0, z: 77.120514}
-    tangent: {x: 1.6308289, y: 0, z: 0}
+  - position: {x: 257, y: 0, z: 76}
+    tangent: {x: 0, y: 0, z: 3}
     roll: 0
-  - position: {x: 257.17145, y: 0, z: 111.988266}
-    tangent: {x: 0.4564209, y: 0, z: 4.298744}
+  - position: {x: 257, y: 0, z: 105}
+    tangent: {x: 0, y: 0, z: 8}
     roll: 0
-  - position: {x: 295.09448, y: 0, z: 114.870384}
-    tangent: {x: 0.4564209, y: 0, z: 0.79520416}
+  - position: {x: 270, y: 0, z: 116}
+    tangent: {x: 0, y: 0, z: 0}
     roll: 0
-  - position: {x: 296.93454, y: 0, z: 147.28964}
-    tangent: {x: -1.717865, y: 0, z: 4.4385376}
+  - position: {x: 293, y: 0, z: 116}
+    tangent: {x: 5, y: 0, z: 0}
     roll: 0
-  - position: {x: 288.7124, y: 0, z: 150.39679}
-    tangent: {x: -1.717865, y: 0, z: 0.3380432}
+  - position: {x: 297, y: 0, z: 122}
+    tangent: {x: 0, y: 0, z: 0}
     roll: 0
-  - position: {x: 263.3347, y: 0, z: 150.1825}
-    tangent: {x: -2.1672058, y: 0, z: 0.3380432}
+  - position: {x: 297, y: 0, z: 145}
+    tangent: {x: 0, y: 0, z: 6}
     roll: 0
-  - position: {x: 261.99268, y: 0, z: 126.959785}
-    tangent: {x: 0.40008545, y: 0, z: -0.120407104}
+  - position: {x: 290, y: 0, z: 150}
+    tangent: {x: 0, y: 0, z: 0}
     roll: 0
-  - position: {x: 246.25024, y: 6.4451294, z: 109.50669}
-    tangent: {x: -21.672226, y: 0, z: 0.20903778}
+  - position: {x: 266, y: 0, z: 150}
+    tangent: {x: -3, y: 0, z: 0}
     roll: 0
-  - position: {x: 204.46494, y: 0, z: 104.264565}
-    tangent: {x: -21.672226, y: 0, z: 0.20903778}
+  - position: {x: 262, y: 0, z: 145}
+    tangent: {x: 0, y: 0, z: 0}
     roll: 0
-  - position: {x: 162.73993, y: 0, z: 106.023796}
-    tangent: {x: -2.4330444, y: 0, z: 0.20903778}
+  - position: {x: 262, y: 0, z: 125}
+    tangent: {x: 0, y: 0, z: -6}
     roll: 0
-  - position: {x: 162.44989, y: 0, z: 0.25481796}
-    tangent: {x: -0.8440399, y: 0, z: 0.20903778}
+  - position: {x: 245, y: 0, z: 111}
+    tangent: {x: -8, y: 0, z: 0}
     roll: 0
-  - position: {x: 141.841, y: 0, z: 0.9767647}
-    tangent: {x: -0.43052673, y: 0, z: 0.17790604}
+  - position: {x: 230, y: 0, z: 106}
+    tangent: {x: -3, y: 0, z: 0}
     roll: 0
-  - position: {x: 11.205902, y: 0, z: 0.36191845}
-    tangent: {x: -0.43052673, y: -0.5901414, z: 0.41773605}
+  - position: {x: 170, y: 0, z: 106}
+    tangent: {x: -8, y: 0, z: 0}
+    roll: 0
+  - position: {x: 162, y: 0, z: 98}
+    tangent: {x: 0, y: 0, z: 0}
+    roll: 0
+  - position: {x: 162, y: 0, z: 16}
+    tangent: {x: 0, y: 0, z: -16}
+    roll: 0
+  - position: {x: 148, y: 0, z: 1}
+    tangent: {x: 0, y: 0, z: 0}
+    roll: 0
+  - position: {x: 12, y: 0, z: 0}
+    tangent: {x: 0, y: 0, z: 0}
     roll: 0
   - position: {x: 0, y: 0, z: 0}
-    tangent: {x: -9.701767, y: 0, z: 1.144661}
+    tangent: {x: 0, y: 0, z: 0}
     roll: 0
 --- !u!114 &114293390113771626
 MonoBehaviour:
@@ -899,14 +911,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   carPrefabs:
-  - {fileID: 1860418741117730, guid: c3485a7df90cfe446b40c23b334fb2d2, type: 2}
-  - {fileID: 1700510432597840, guid: 24258a13cc2ee564bacaa3bf08656dc5, type: 2}
-  - {fileID: 1571434494802378, guid: 31ee662db6503f14aac2fb48c4a1f737, type: 2}
-  - {fileID: 1158789434610472, guid: b5be98742f052c641bd947a949c8ebef, type: 2}
-  - {fileID: 1860418741117730, guid: c3485a7df90cfe446b40c23b334fb2d2, type: 2}
-  - {fileID: 1731182817099986, guid: 4fc972d8f9e06fc4f889117de5dd70e7, type: 2}
+  - {fileID: 114585276791181242, guid: c3485a7df90cfe446b40c23b334fb2d2, type: 2}
+  - {fileID: 114942050660904362, guid: 31ee662db6503f14aac2fb48c4a1f737, type: 2}
   timer: 0
-  carBornRate: 10
+  carBornRate: 8
   initailSize: 20
   Path:
   - {fileID: 114214207445257676}
@@ -929,92 +937,101 @@ MonoBehaviour:
     width: 0.2
   m_Looped: 0
   m_Waypoints:
-  - position: {x: 0, y: 0, z: 1}
+  - position: {x: 0, y: 0, z: 0}
     tangent: {x: 1, y: 0, z: 0}
     roll: 0
-  - position: {x: -90.98776, y: 0, z: 1}
-    tangent: {x: -6.3479614, y: 0, z: 0}
+  - position: {x: -90, y: 0, z: 1}
+    tangent: {x: -6, y: 0, z: 0}
     roll: 0
-  - position: {x: -94.61, y: 0, z: -63.4}
-    tangent: {x: -0.35038757, y: 0, z: 0}
+  - position: {x: -95, y: 0, z: -5}
+    tangent: {x: 0, y: 0, z: 0}
     roll: 0
-  - position: {x: -108.8, y: 0, z: -68.99571}
-    tangent: {x: -15.966583, y: 0, z: 0}
+  - position: {x: -95, y: 0, z: -64}
+    tangent: {x: 0, y: 0, z: 0}
     roll: 0
-  - position: {x: -181.8, y: 0, z: -68.99571}
-    tangent: {x: -10.206741, y: 0, z: 0}
+  - position: {x: -100, y: 0, z: -69}
+    tangent: {x: -5, y: 0, z: 0}
     roll: 0
-  - position: {x: -189.45137, y: 0, z: -77.05691}
-    tangent: {x: -0.3474121, y: 0, z: 0}
+  - position: {x: -185, y: 0, z: -69}
+    tangent: {x: -6, y: 0, z: 0}
     roll: 0
-  - position: {x: -190.29866, y: 0, z: -106.09306}
-    tangent: {x: -1.8801422, y: 0, z: -4.3703766}
+  - position: {x: -190, y: 0, z: -80}
+    tangent: {x: 0, y: 0, z: 0}
     roll: 0
-  - position: {x: -204.6815, y: 0, z: -107.99585}
-    tangent: {x: -1.3253326, y: 0, z: -0.24646759}
+  - position: {x: -190, y: 0, z: -98}
+    tangent: {x: 0, y: 0, z: -10}
     roll: 0
-  - position: {x: -225.36755, y: 0, z: -108.24232}
-    tangent: {x: -6.454605, y: 0, z: -0.24646759}
+  - position: {x: -200, y: 0, z: -108}
+    tangent: {x: 0, y: 0, z: 0}
     roll: 0
-  - position: {x: -230.19727, y: 0, z: -95.48467}
-    tangent: {x: -0.41314697, y: 0, z: -0.24646759}
+  - position: {x: -225, y: 0, z: -108}
+    tangent: {x: -6, y: 0, z: 0}
     roll: 0
-  - position: {x: -230.61041, y: 0, z: -72.75839}
-    tangent: {x: -0.41314697, y: 0, z: -0.24646759}
+  - position: {x: -230, y: 0, z: -98}
+    tangent: {x: 0, y: 0, z: 0}
     roll: 0
-  - position: {x: -236.53955, y: 0, z: -68.80465}
-    tangent: {x: -5.1425323, y: 0, z: -0.24646759}
+  - position: {x: -230, y: 0, z: -76}
+    tangent: {x: 0, y: 0, z: 3}
     roll: 0
-  - position: {x: -256.74667, y: 0, z: -69.05112}
-    tangent: {x: -5.1425323, y: 0, z: -0.24646759}
+  - position: {x: -235, y: 0, z: -68}
+    tangent: {x: -6, y: 0, z: 0}
     roll: 0
-  - position: {x: -259.60098, y: 0, z: -80.008514}
-    tangent: {x: -0.27038574, y: 0, z: -0.24646759}
+  - position: {x: -250, y: 0, z: -68}
+    tangent: {x: -3, y: 0, z: 0}
     roll: 0
-  - position: {x: -259.87137, y: 0, z: -100.31481}
-    tangent: {x: -0.27038574, y: 0, z: -2.9913025}
+  - position: {x: -260, y: 0, z: -75}
+    tangent: {x: 0, y: 0, z: -5}
     roll: 0
-  - position: {x: -246.32939, y: 0, z: -103.83909}
-    tangent: {x: 2.6377869, y: 0, z: 0.2376709}
+  - position: {x: -260, y: 0, z: -97}
+    tangent: {x: 0, y: 0, z: -6}
     roll: 0
-  - position: {x: -200.12979, y: 0, z: -103.60142}
-    tangent: {x: 2.6377869, y: 0, z: 0.2376709}
+  - position: {x: -245, y: 0, z: -103}
+    tangent: {x: 3, y: 0, z: 0}
     roll: 0
-  - position: {x: -194.90092, y: 0, z: -116.25114}
-    tangent: {x: -0.14883423, y: 0, z: -7.5978165}
+  - position: {x: -205, y: 0, z: -103}
+    tangent: {x: 3, y: 0, z: 0}
     roll: 0
-  - position: {x: -195.04976, y: 0, z: -128.34341}
-    tangent: {x: -0.14883423, y: 0, z: -7.5978165}
+  - position: {x: -195, y: 0, z: -112}
+    tangent: {x: 0, y: 0, z: -8}
     roll: 0
-  - position: {x: -205.55115, y: 0, z: -133.56804}
-    tangent: {x: 3.992218, y: 0, z: -0.4150238}
+  - position: {x: -195, y: 0, z: -128}
+    tangent: {x: 0, y: 0, z: -8}
     roll: 0
-  - position: {x: -285.912, y: 0, z: -133.16196}
-    tangent: {x: -5.39505, y: 0, z: 2.2183228}
+  - position: {x: -205, y: 0, z: -134}
+    tangent: {x: 0, y: 0, z: 0}
     roll: 0
-  - position: {x: -290.06177, y: 0, z: -124.656296}
-    tangent: {x: 0.28601074, y: 0, z: 1.9765015}
+  - position: {x: -282, y: 0, z: -134}
+    tangent: {x: -6, y: 0, z: 0}
     roll: 0
-  - position: {x: -289.77576, y: 0, z: -98.572586}
-    tangent: {x: 0.28601074, y: 0, z: 5.9678574}
+  - position: {x: -290, y: 0, z: -125}
+    tangent: {x: 0, y: 0, z: 6}
     roll: 0
-  - position: {x: -278.1796, y: 0, z: -93.912186}
-    tangent: {x: 1.3322449, y: 0, z: 0.54953}
+  - position: {x: -290, y: 0, z: -98}
+    tangent: {x: 0, y: 0, z: 5}
     roll: 0
-  - position: {x: -265.1611, y: 0, z: -90.801025}
-    tangent: {x: -0.27401733, y: 0, z: 7.1025467}
+  - position: {x: -284, y: 0, z: -94}
+    tangent: {x: 0, y: 0, z: 0}
     roll: 0
-  - position: {x: -265.36334, y: 0, z: -3.756404}
-    tangent: {x: -0.27401733, y: 0, z: 7.1025467}
+  - position: {x: -272, y: 0, z: -94}
+    tangent: {x: 6, y: 0, z: 0}
     roll: 0
-  - position: {x: -256.09906, y: 0, z: 6.978589}
-    tangent: {x: 5.4540405, y: 0, z: -0.08850098}
+  - position: {x: -265, y: 0, z: -90}
+    tangent: {x: 0, y: 0, z: 0}
     roll: 0
-  - position: {x: -119.217766, y: 0, z: 6.858121}
-    tangent: {x: -0.27401733, y: 0, z: -0.42886353}
+  - position: {x: -265, y: 0, z: -4}
+    tangent: {x: 0, y: 0, z: 8}
     roll: 0
-  - position: {x: -4.1952667, y: 0, z: 6.4292574}
-    tangent: {x: -0.27401733, y: 0, z: -0.42886353}
+  - position: {x: -256, y: 0, z: 7}
+    tangent: {x: 6, y: 0, z: 0}
+    roll: 0
+  - position: {x: -120, y: 0, z: 7}
+    tangent: {x: 0, y: 0, z: 0}
+    roll: 0
+  - position: {x: 0, y: 0, z: 7}
+    tangent: {x: 0, y: 0, z: 0}
+    roll: 0
+  - position: {x: 0, y: 0, z: 0}
+    tangent: {x: 1, y: 0, z: 0}
     roll: 0
 --- !u!114 &114724598896638960
 MonoBehaviour:
@@ -1030,7 +1047,7 @@ MonoBehaviour:
   Speed: 40
   moveing: 0
   dollyCart: {fileID: 114821469169409286}
-  RecyclePosition: 184
+  RecyclePosition: 183
   NextPath: {fileID: 114167797891585696}
   originPath: {fileID: 114854821757508414}
   changePathalready: 0
@@ -1071,21 +1088,24 @@ MonoBehaviour:
   - position: {x: 0, y: 0, z: 1}
     tangent: {x: 1, y: 0, z: 0}
     roll: 0
-  - position: {x: -64.29785, y: 0, z: 0.9999998}
+  - position: {x: -64.29785, y: 0, z: 1}
     tangent: {x: -1, y: 0, z: 0}
     roll: 0
-  - position: {x: -128.5957, y: 0, z: 1}
-    tangent: {x: 1, y: 0, z: 0}
+  - position: {x: -125, y: 0, z: 1}
+    tangent: {x: -5, y: 0, z: 0}
     roll: 0
-  - position: {x: -129.97272, y: 0, z: 15.658287}
-    tangent: {x: 1, y: 0, z: 15.450527}
+  - position: {x: -130, y: 0, z: 10}
+    tangent: {x: 0, y: 0, z: 2}
     roll: 0
-  - position: {x: -130.4999, y: 0, z: 27.54327}
-    tangent: {x: 0.5797272, y: 0, z: 0}
+  - position: {x: -130, y: 0, z: 30}
+    tangent: {x: 0, y: 0, z: 6}
     roll: 0
-  - position: {x: -140.02603, y: 0, z: 36.71461}
-    tangent: {x: -7.853485, y: 0, z: 0.16698837}
+  - position: {x: -135, y: 0, z: 37}
+    tangent: {x: 0, y: 0, z: 0}
     roll: 0
-  - position: {x: -149.16489, y: 0, z: 31.29546}
-    tangent: {x: -0.05203247, y: 0, z: -5.5858116}
+  - position: {x: -142, y: 0, z: 37}
+    tangent: {x: 0, y: 0, z: 0}
+    roll: 0
+  - position: {x: -146, y: 0, z: 31.357883}
+    tangent: {x: 0, y: 0, z: -6}
     roll: 0
