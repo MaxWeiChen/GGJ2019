@@ -7,7 +7,8 @@ public class Car : MonoBehaviour {
     public bool moveing = false;
     private Rigidbody carRigidbody;
     public CinemachineDollyCart dollyCart;
-    
+    object lockObject = new object();
+
     public float RecyclePosition = 860;//1014;
     // Use this for initialization
     void Start () {
@@ -21,8 +22,8 @@ public class Car : MonoBehaviour {
 	void Update () {
         if(dollyCart.m_Position >= RecyclePosition)
         {
-            CarManager.instance.Recovery(gameObject);
-            print("回收");
+            CarManager.instance.Recovery(this);
+           
         }
         if (!moveing)
         {
@@ -33,9 +34,7 @@ public class Car : MonoBehaviour {
             {
                 if (hitInfo.collider.tag == "Human" || hitInfo.collider.tag == "Car")
                 {
-                    print(hitInfo.collider.name);
-                   
-                    dollyCart.m_Speed = 0;
+                    dollyCart.m_Speed = 10 - (10 * Vector3.Distance(transform.position, hitInfo.point) / 12f);
                     moveing = true;
                     Invoke("ContinueMove", 1);
                 }
@@ -44,19 +43,19 @@ public class Car : MonoBehaviour {
                     print(hitInfo.collider.name);
                     Vector3 force = transform.forward * Speed * Time.deltaTime;
                     carRigidbody.AddForce(force, ForceMode.Force);
-                    dollyCart.m_Speed = 10;
+                   
                 }
             }
             else
             { 
                 Vector3 force = transform.forward * Speed * Time.deltaTime;
                 carRigidbody.AddForce(force, ForceMode.Force);
-                dollyCart.m_Speed = 10;
+                Fade(10);
             }
         }
 
     }
-   void ContinueMove()
+    void ContinueMove()
     {
         moveing = false;
         dollyCart.m_Speed = 10;
@@ -65,9 +64,38 @@ public class Car : MonoBehaviour {
     {
         if (collision.collider.name == "Block")
         {
-            CarManager.instance.Recovery(gameObject);
+            CarManager.instance.Recovery(this);
         }
     }
+    IEnumerator Fade(float DSpeed)
+    {
+        lock (lockObject)
+        {
 
-   
+            float initSpeed = dollyCart.m_Speed;
+            if (initSpeed != DSpeed)
+            {
+                if (initSpeed < DSpeed)
+                {
+                    while (initSpeed < DSpeed)
+                    {
+                        initSpeed += Time.deltaTime;
+                        yield return new WaitForFixedUpdate();
+                    }
+                }
+                else
+                {
+                    while (initSpeed > DSpeed)
+                    {
+                        initSpeed -= Time.deltaTime;
+                        yield return new WaitForFixedUpdate();
+                    }
+                }
+                yield break;
+            }
+        }
+
+    }
+
+
 }
