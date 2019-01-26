@@ -11,6 +11,7 @@ ModelImporter:
     2300000: ama001
     3300000: ama001
     4300000: ama001
+    6400000: ama001
   externalObjects: {}
   materials:
     importMaterials: 1
@@ -43,7 +44,7 @@ ModelImporter:
     lODScreenPercentages: []
     globalScale: 0.1
     meshCompression: 0
-    addColliders: 0
+    addColliders: 1
     importVisibility: 1
     importBlendShapes: 1
     importCameras: 1

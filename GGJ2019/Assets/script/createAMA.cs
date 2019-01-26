@@ -10,7 +10,7 @@ public class createAMA : MonoBehaviour {
 
 
 	void Start () {
-		AMA_Ans = UnityEngine.Random.Range( 0, 3) ;
+		AMA_Ans = UnityEngine.Random.Range( 0, 4) ;
 		cam = gameObject.transform.GetChild(AMA_Ans).gameObject.transform.GetChild(1).gameObject ;
 		cam.SetActive(true);
 		//people [AMA_index].SetActive (true) ;
@@ -25,9 +25,9 @@ public class createAMA : MonoBehaviour {
 
 	public void setAns(){
 		cam.SetActive(false);
-		int temp = UnityEngine.Random.Range (0, 3);
+		int temp = UnityEngine.Random.Range (0, 4);
 		while(AMA_Ans == temp){
-			temp = UnityEngine.Random.Range (0, 3);
+			temp = UnityEngine.Random.Range (0, 4);
 		}
 		AMA_Ans = temp;
 		cam = gameObject.transform.GetChild(AMA_Ans).gameObject.transform.GetChild(1).gameObject ;
