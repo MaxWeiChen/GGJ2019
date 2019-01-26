@@ -1,0 +1,20 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GGJ2019", "GGJ2019.csproj", "{C96879B0-234D-4738-9205-52CC1B56BC8C}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{C96879B0-234D-4738-9205-52CC1B56BC8C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C96879B0-234D-4738-9205-52CC1B56BC8C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C96879B0-234D-4738-9205-52CC1B56BC8C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C96879B0-234D-4738-9205-52CC1B56BC8C}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
