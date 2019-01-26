@@ -125,7 +125,10 @@
      <Compile Include="Assets\Scripts\Car.cs" />
      <Compile Include="Assets\Scripts\CarManager.cs" />
      <Compile Include="Assets\Scripts\FreeCam.cs" />
+     <Compile Include="Assets\Scripts\GameCtrl.cs" />
      <Compile Include="Assets\Scripts\ParkingCar.cs" />
+     <Compile Include="Assets\Scripts\ScoreBoardDataControl.cs" />
+     <Compile Include="Assets\Scripts\ScoreboardScoreText.cs" />
      <None Include="Assets\RTS_Camera\Demo\Projectors\Guidelines.txt" />
      <None Include="Assets\Cinemachine\ReleaseNotes.txt" />
      <None Include="Assets\PolygonCity\Change_Log.txt" />

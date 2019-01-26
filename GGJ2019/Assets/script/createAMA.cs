@@ -3,14 +3,19 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class createAMA : MonoBehaviour {
+	public static createAMA instance;
 	public GameObject[] people ; 
 	private int AMA_Ans ; 
 	private GameObject cam ;
 
 
+	void Awake(){
+		instance = this;			
+	}
 
 	void Start () {
-		AMA_Ans = UnityEngine.Random.Range( 0, 4) ;
+			
+		AMA_Ans = UnityEngine.Random.Range( 0, people.Length ) ;
 		print (AMA_Ans);
 		cam = gameObject.transform.GetChild(AMA_Ans).gameObject.transform.GetChild(1).gameObject ;
 		cam.SetActive(true);
@@ -26,9 +31,9 @@ public class createAMA : MonoBehaviour {
 
 	public void setAns(){
 		cam.SetActive(false);
-		int temp = UnityEngine.Random.Range (0, 4);
+		int temp = UnityEngine.Random.Range (0, people.Length);
 		while(AMA_Ans == temp){
-			temp = UnityEngine.Random.Range (0, 4);
+			temp = UnityEngine.Random.Range (0, people.Length);
 		}
 		AMA_Ans = temp;
 		print (AMA_Ans);
