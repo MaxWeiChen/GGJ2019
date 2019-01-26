@@ -32,7 +32,7 @@ public class Car : MonoBehaviour {
             Debug.DrawRay(transform.position + transform.up + (transform.forward * 3), transform.forward * 5, Color.green);
             if (Physics.Raycast(ray, out hitInfo,10))
             {
-                if (hitInfo.collider.tag == "Human" || hitInfo.collider.tag == "Car")
+                if (hitInfo.collider.tag == "People" || hitInfo.collider.tag == "Car")
                 {
                     dollyCart.m_Speed = 10 - (10 * Vector3.Distance(transform.position, hitInfo.point) / 12f);
                     moveing = true;
