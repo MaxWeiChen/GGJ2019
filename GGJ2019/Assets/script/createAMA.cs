@@ -4,57 +4,62 @@ using UnityEngine;
 
 public class createAMA : MonoBehaviour {
 	public GameObject[] people ; 
-	private int AMA_index = 0 ; 
-	private bool jump = false ;
-	private bool once = false ;
+	private int AMA_Ans ; 
+	private GameObject cam ;
 
-	// Use this for initialization
+
+
 	void Start () {
-		AMA_index = UnityEngine.Random.Range( 0, 3) ;
-		people [AMA_index].SetActive (true) ;
-		//setPosion ();
-		print("start") ;
+		AMA_Ans = UnityEngine.Random.Range( 0, 3) ;
+		cam = gameObject.transform.GetChild(AMA_Ans).gameObject.transform.GetChild(1).gameObject ;
+		cam.SetActive(true);
+		//people [AMA_index].SetActive (true) ;
+
+		//print("start") ;
 	}
 	
-	// Update is called once per frame
+
 	void Update () {
-		if(jump){
-			//transform.position = transform.position + new Vector3(0, 0.05f, 0);
-			transform.position = new Vector3 (transform.position.x, transform.position.y + 0.049f, transform.position.z);
-			//Mathf.Clamp(transform.position.y + 0.5f, 0.5f, 1.0f)
-			//jump = false;
-			//gameObject.SetActive (false) ;
-			print (transform.position.y);
-			if (transform.position.y >= 1.0f) {
-				jump = false;
-				StartCoroutine(waittime ()) ;
-			}
-		}
+
 	}
 
+	public void setAns(){
+		cam.SetActive(false);
+		int temp = UnityEngine.Random.Range (0, 3);
+		while(AMA_Ans == temp){
+			temp = UnityEngine.Random.Range (0, 3);
+		}
+		AMA_Ans = temp;
+		cam = gameObject.transform.GetChild(AMA_Ans).gameObject.transform.GetChild(1).gameObject ;
+		cam.SetActive(true);
+		//print (cam.name);
 
-
+	}
+	//transform.position = new Vector3 (transform.position.x + 3 , transform.position.y , transform.position.z);
+	/*
 	void setType(){
-		people [AMA_index].SetActive (false) ;
-		AMA_index = UnityEngine.Random.Range( 0, 3) ;
-		people [AMA_index].SetActive (true) ;
+		people [AMA_Ans].SetActive (false) ;
+		int temp = UnityEngine.Random.Range (0, 3);
+		while(AMA_Ans == temp){
+			temp = UnityEngine.Random.Range (0, 3);
+		}
+		AMA_Ans = temp;
+		people [AMA_Ans].SetActive (true) ;
 		print ("change");
-	}
-
-	void setPosion(){
-
-	}
-
-	void OnMouseDown(){
-		if (!jump) {
+	}*/
+	/*	
+	public void check(int num){
+		if (!jump && AMA_Ans == num) {
 			jump = true ;
-			//once = true ;
+			print (gameObject.name);
+			Rigidbody rig = gameObject.GetComponent<Rigidbody> ();
+			rig.AddForce(Vector3.up * 200.0f);
+			StartCoroutine(waittime ()) ;
 		}
 	}
-		
-	IEnumerator waittime(){ 
-		yield return new WaitForSeconds(0.2f); // 等待x秒
-		setType() ;
+	*/
+	public int getAns(){
+		return  AMA_Ans ;
 	}
 
 }
