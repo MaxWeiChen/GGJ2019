@@ -5,9 +5,9 @@ using UnityEngine;
 public class createAMA : MonoBehaviour {
 	public static createAMA instance;
 	public GameObject[] people ; 
+	private int nowPeopleNum = 0 ;
 	private int AMA_Ans ; 
 	private GameObject cam ;
-
 
 
 	void Awake(){
@@ -17,7 +17,7 @@ public class createAMA : MonoBehaviour {
 	void Start () {
 			
 		AMA_Ans = UnityEngine.Random.Range( 0, people.Length ) ;
-		print (AMA_Ans);
+		//print (AMA_Ans);
 		cam = gameObject.transform.GetChild(AMA_Ans).gameObject.transform.GetChild(1).gameObject ;
 		cam.SetActive(true);
 		//people [AMA_index].SetActive (true) ;
@@ -33,11 +33,16 @@ public class createAMA : MonoBehaviour {
 	public void setAns(){
 		cam.SetActive(false);
 		int temp = UnityEngine.Random.Range (0, people.Length);
-		while(AMA_Ans == temp){
+		GameObject go = gameObject.transform.GetChild(temp).gameObject ;
+		//print ("test" + go.name);
+		people_hit ph = go.GetComponent<people_hit> ();
+		while(ph.getBefound()){
 			temp = UnityEngine.Random.Range (0, people.Length);
+			go = gameObject.transform.GetChild(temp).gameObject ;
+			ph = go.GetComponent<people_hit> ();
 		}
 		AMA_Ans = temp;
-		print (AMA_Ans);
+		//print (AMA_Ans);
 		cam = gameObject.transform.GetChild(AMA_Ans).gameObject.transform.GetChild(1).gameObject ;
 		cam.SetActive(true);
 		//print (cam.name);
@@ -68,6 +73,15 @@ public class createAMA : MonoBehaviour {
 	*/
 	public int getAns(){
 		return  AMA_Ans ;
+	}
+	public bool checkEnd(){
+		if ((++nowPeopleNum) >= people.Length){
+			print (nowPeopleNum);
+			return true; 
+		}else{print (nowPeopleNum);
+		
+			return false;
+		}
 	}
 
 }
