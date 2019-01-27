@@ -1,11 +1,11 @@
 ﻿<Properties StartupItem="Assembly-CSharp.csproj">
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Unity.Instance.Unity Editor" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\FindManager.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\script\createAMA.cs">
     <Files>
-      <File FileName="Assets\script\createAMA.cs" Line="5" Column="23" />
+      <File FileName="Assets\script\createAMA.cs" Line="87" Column="41" />
       <File FileName="Assets\script\people_hit.cs" Line="1" Column="1" />
       <File FileName="Assets\script\people_found.cs" Line="1" Column="1" />
-      <File FileName="Assets\Scripts\FindManager.cs" Line="39" Column="5" />
+      <File FileName="Assets\Scripts\FindManager.cs" Line="1" Column="1" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
