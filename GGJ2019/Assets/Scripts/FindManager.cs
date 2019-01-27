@@ -43,6 +43,12 @@ public class FindManager : MonoBehaviour {
     }
     // Update is called once per frame
     void FixedUpdate () {
+        if (GameCtrl.timeout)
+        {
+            outLineTarget.SetActive(false);
+            
+            arrow.gameObject.SetActive(false);
+        }
         if (GrandMaCube != null)
         {
             //createAMA.instance.gameObject.transform.GetChild (AMA_Ans).gameObject;
@@ -96,6 +102,7 @@ public class FindManager : MonoBehaviour {
     }
     public void RecycleImage()
     {
+        outLineTarget.SetActive(false);
         showArrowTarget = false;
         arrow.gameObject.SetActive(false);
         timer = 0;
