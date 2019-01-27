@@ -83,5 +83,8 @@ public class createAMA : MonoBehaviour {
 			return false;
 		}
 	}
+	public GameObject getAnsObject(){
+		return gameObject.transform.GetChild (AMA_Ans).gameObject ;
+	}
 
 }
