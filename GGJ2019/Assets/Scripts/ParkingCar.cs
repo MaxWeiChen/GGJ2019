@@ -3,109 +3,72 @@ using System.Collections.Generic;
 using UnityEngine;
 using Cinemachine;
 public class ParkingCar : Car {
-    private Rigidbody parkingcarRigidbody;
+    
     public CinemachinePath NextPath;
     public CinemachinePath originPath;
+   
+    float Length= 5;
     public bool changePathalready = false;
-    void Start () {
-      
-        parkingcarRigidbody = GetComponent<Rigidbody>();
-        parkingcarRigidbody.useGravity = false;
-        RecyclePosition = 184;
-    }
-	
+   
 	// Update is called once per frame
 	void Update () {
-        if(dollyCart.m_Position >= RecyclePosition && !changePathalready)
-        {
-            changePathalready = true;
-            dollyCart.m_Speed = -10;
-            StartCoroutine(RBack());
-        }
+        
         if (!moveing && !changePathalready)
         {
-            Ray ray = new Ray(transform.position, transform.forward * 16);
-           
+            Ray ray = new Ray(transform.position + transform.up + (transform.forward * 3), transform.forward * Length);
             RaycastHit hitInfo;
-            Debug.DrawRay(transform.position, transform.forward * 10, Color.green);
-            if (Physics.Raycast(ray, out hitInfo))
+            Debug.DrawRay(transform.position + transform.up + (transform.forward * 3), transform.forward * Length, Color.green);
+            if (Physics.Raycast(ray, out hitInfo, 10))
             {
-                if (hitInfo.collider.tag == "Human" || hitInfo.collider.tag == "Car")
+                print("hit");
+                if (hitInfo.collider.tag == "People" || hitInfo.collider.tag == "Car")
                 {
-                    print("前面有車");
-                    dollyCart.m_Speed = 0;
-                    moveing = true;
-                    Invoke("ContinueMove", 2);
+                    print("People");
+                    dollyCart.m_Speed = 10 * hitInfo.distance / Length;
+                    
+                   
                 }
                 else
                 {
-                    print(hitInfo.collider.name);
-                    Vector3 force = transform.forward * Speed * Time.deltaTime;
-                    parkingcarRigidbody.AddForce(force, ForceMode.Force);
-                    dollyCart.m_Speed = 10;
+                   
                 }
             }
             else
-            { 
-                Vector3 force = transform.forward * Speed * Time.deltaTime;
-                parkingcarRigidbody.AddForce(force, ForceMode.Force);
-                dollyCart.m_Speed = 10;
-            }
-        }
-
-    }
-    void ContinueMove()
-    {
-        moveing = false;
-    }
-    private void OnCollisionEnter(Collision collision)
-    {
-        if (collision.collider.name == "Block")
-        {
-            CarManager.instance.Recovery(gameObject);
-        }
-    }
-    IEnumerator RBack()
-    {
-        dollyCart.m_Speed = 0;
-        for (int i = 0; i < 3; i++)
-        {
-            yield return new WaitForSeconds(1f);
-        }
-        dollyCart.m_Speed = -10;
-        while (dollyCart.m_Position > 174)
-        {
-            yield return new WaitForSeconds(.3f);
-        }
-        
-        dollyCart.m_Path = NextPath;
-        dollyCart.m_Position = 0;
-        dollyCart.m_Speed = 10;
-        while (dollyCart.m_Position < 275)
-        {
-            Ray ray = new Ray(transform.position, transform.forward * 10);
-            RaycastHit hitInfo;
-            Debug.DrawRay(transform.position, transform.forward * 10, Color.green);
-            if (Physics.Raycast(ray, out hitInfo))
             {
-                if (hitInfo.collider.tag == "Human" || hitInfo.collider.tag == "Car")
-                {
-                    print("前面有車");
-                    dollyCart.m_Speed = 0;
-                    moveing = true;
-                    Invoke("ContinueMove", 2);
-                }
-                else
-                { }
             }
-            yield return new WaitForFixedUpdate();
         }
-        dollyCart.m_Path = originPath;
-        dollyCart.m_Position = 0;
-        dollyCart.m_Speed = 10;
-        changePathalready = false;
-        yield break;
+
     }
-
-
+   
+    //IEnumerator Fade(float DSpeed)
+    //{
+    //    lock (lockObject)
+    //    {
+    //        float initSpeed = dollyCart.m_Speed;
+    //        if (initSpeed < DSpeed)
+    //        {
+    //            while (initSpeed < DSpeed)
+    //            {
+    //                initSpeed += Time.deltaTime;
+    //                dollyCart.m_Speed = initSpeed;
+    //                yield return new WaitForFixedUpdate();
+    //            }
+    //        }
+    //        else
+    //        {
+    //            while (initSpeed > DSpeed)
+    //            {
+    //                initSpeed -= Time.deltaTime;
+    //                dollyCart.m_Speed = initSpeed;
+    //                yield return new WaitForFixedUpdate();
+    //            }
+    //            if (DSpeed == 0)
+    //                dollyCart.m_Speed = 0;
+    //        }
+    //        yield break;
+    //    }
+       
+    //}
+    
+   
 }
