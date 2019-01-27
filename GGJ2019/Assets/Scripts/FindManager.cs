@@ -36,6 +36,7 @@ public class FindManager : MonoBehaviour {
     }
     // Update is called once per frame
     void FixedUpdate () {
+		//createAMA.instance.gameObject.transform.GetChild (AMA_Ans).gameObject;
         timer += Time.deltaTime;
         Vector3 screenPos = cam.WorldToScreenPoint(GrandMaCube.transform.position);
         if (!showArrowTarget)

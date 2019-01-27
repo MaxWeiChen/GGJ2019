@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class people_hit : MonoBehaviour {
 	public createAMA CA;
+	//public showPeople SP ;
 	public int num ;
 	private bool jump = false ;
 	private bool befound = false ;
@@ -23,7 +24,7 @@ public class people_hit : MonoBehaviour {
             GameObject.Find("Main Camera").GetComponent<GameCtrl>().AddAMA();
 			jump = true ;
 			befound = true ;
-
+			showPeople.SP.showpeo(num);
 
 			Rigidbody rig = gameObject.GetComponent<Rigidbody> ();
 			rig.AddForce(Vector3.up * 200.0f);
