@@ -25,8 +25,8 @@ public class FindManager : MonoBehaviour {
     GameObject arrow;
     public bool showArrowTarget = false;
     public float during = 4.0f;
-
-    public GameObject outLineTarget; 
+    public float _Speed = 5;
+    public GameObject outLineTarget;
     // Use this for initialization
     void Start () {
         outLineTarget = Instantiate(target);
@@ -48,61 +48,39 @@ public class FindManager : MonoBehaviour {
             //createAMA.instance.gameObject.transform.GetChild (AMA_Ans).gameObject;
             timer += Time.deltaTime;
             Vector3 screenPos = cam.WorldToScreenPoint(GrandMaCube.transform.position);
-           
+
             if (!showArrowTarget)
             {
 
             }
             else
             {
-
-                //GrandMaCube.transform.position;
-                // Debug.Log("target is " + screenPos);
+               
                 arrow.GetComponent<RectTransform>().position = screenPos + fixedVector2;
-                ////print(canvas.GetComponent<RectTransform>().sizeDelta);
-                //if (Mathf.Abs(screenPos.x) < (canvas.GetComponent<RectTransform>().sizeDelta.x / 2.0f) && Mathf.Abs(screenPos.y)< (canvas.GetComponent<RectTransform>().sizeDelta.y / 2.0f))
-                //{
-                //    Debug.Log(" CANVAS width :" + canvas.GetComponent<RectTransform>().sizeDelta.x + ", " + " CANVAS height :" + canvas.GetComponent<RectTransform>().sizeDelta.y);
-                //    arrow.GetComponent<RectTransform>().position = screenPos + fixedVector2;
-                //    outLineTarget.SetActive(false);
-                //}
-                //else
-                //{
-                //    float angle = Mathf.Atan2(screenPos.x, screenPos.y) * Mathf.Rad2Deg;
-                //    // Debug.Log("角度" + angle);
-                //    if (screenPos.x < 0)
-                //    {
-                //        Debug.Log("左");
-                //    }
-                //    else if (screenPos.x > 0)
-                //    {
-                //        Debug.Log("又");
-                //    }
-                //    if (screenPos.y < 0)
-                //    {
-                //        Debug.Log("下");
-                //    }
-                //    else if (screenPos.y > 0)
-                //    {
-                //        Debug.Log("上");
+                //outLineTarget.SetActive(false);
+                Vector2 dir = (outLineTarget.GetComponent<RectTransform>().anchoredPosition - arrow.GetComponent<RectTransform>().anchoredPosition).normalized;
+                outLineTarget.GetComponent<RectTransform>().up = dir;
+                float distance = Vector3.Distance(outLineTarget.GetComponent<RectTransform>().anchoredPosition, arrow.GetComponent<RectTransform>().anchoredPosition);
+                if(distance>5)
+                    outLineTarget.GetComponent<RectTransform>().anchoredPosition -= dir* _Speed * Time.deltaTime * distance;
+                if ((Mathf.Abs(arrow.GetComponent<RectTransform>().anchoredPosition.x) > (canvas.GetComponent<RectTransform>().sizeDelta.x / 2.0f))
+                    || Mathf.Abs(arrow.GetComponent<RectTransform>().anchoredPosition.y) > (canvas.GetComponent<RectTransform>().sizeDelta.y / 2.0f))
+                {
+                    outLineTarget.SetActive(true);
+                   
+                    outLineTarget.GetComponent<RectTransform>().anchoredPosition = Vector3.zero;
+                    outLineTarget.GetComponent<RectTransform>().up = dir;
 
-                //    }                    //超出邊界
 
-                //    outLineTarget.GetComponent<RectTransform>().rotation = Quaternion.Euler(0, 0, angle);
-                //    outLineTarget.GetComponent<RectTransform>().position = new Vector3(400,250); //screenPos + fixedVector2 - new Vector3((canvas.GetComponent<RectTransform>().sizeDelta.x / 2.0f), (canvas.GetComponent<RectTransform>().sizeDelta.y / 2.0f));
-                //    outLineTarget.SetActive(true);
-                //    arrow.SetActive(false);
-
-                //}
-
-                // arrow.rectTransform.DOShakePosition(10, new Vector3(0, 1, 0), 10,0);
-
+                }
+                
+               
 
 
             }
             if (timer >= alertEventRate && !showArrowTarget)
             {
-
+                outLineTarget.SetActive(true);
                 arrow.gameObject.SetActive(true);
                 //開啟提示
                 // arrow.transform.DOMoveY(2+ screenPos.y, .5f).SetLoops(-1, LoopType.Yoyo);
