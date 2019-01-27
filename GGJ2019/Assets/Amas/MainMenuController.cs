@@ -10,6 +10,7 @@ public class MainMenuController : MonoBehaviour
 {
 	[SerializeField] private CinemachineVirtualCamera vcam = null;
 	[SerializeField] private Text desc = null;
+	[SerializeField] private AudioSource startAudio = null;
 
 	public float speed = 0.4f;
 	public float limitMinPostion = -1;
@@ -40,6 +41,7 @@ public class MainMenuController : MonoBehaviour
 		isStartGame = true;
 		SceneManager.LoadSceneAsync("Demo", LoadSceneMode.Single);
 		desc.text = "Loading...";
+		startAudio.Play();
 	}
 
 	private void FixedUpdate()

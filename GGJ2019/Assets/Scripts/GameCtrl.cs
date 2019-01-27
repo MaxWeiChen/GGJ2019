@@ -162,7 +162,7 @@ public class GameCtrl : MonoBehaviour {
     }
     public void Replay()
     {
-        SceneManager.LoadScene(0);
+        SceneManager.LoadScene("Demo");
 
     }
 
