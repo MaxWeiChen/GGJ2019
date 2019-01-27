@@ -232,6 +232,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\Amas\MainMenuController.cs" />
     <Compile Include="Assets\Cinemachine\Base\Runtime\Behaviours\CinemachineBlendListCamera.cs" />
     <Compile Include="Assets\Cinemachine\Base\Runtime\Behaviours\CinemachineBrain.cs" />
     <Compile Include="Assets\Cinemachine\Base\Runtime\Behaviours\CinemachineClearShot.cs" />
@@ -305,11 +306,14 @@
     <Compile Include="Assets\Scripts\CameraExpoler.cs" />
     <Compile Include="Assets\Scripts\Car.cs" />
     <Compile Include="Assets\Scripts\CarManager.cs" />
+    <Compile Include="Assets\Scripts\FindManager.cs" />
     <Compile Include="Assets\Scripts\FreeCam.cs" />
     <Compile Include="Assets\Scripts\GameCtrl.cs" />
     <Compile Include="Assets\Scripts\ParkingCar.cs" />
+    <Compile Include="Assets\Scripts\RecycleCar.cs" />
     <Compile Include="Assets\Scripts\ScoreBoardDataControl.cs" />
     <Compile Include="Assets\Scripts\ScoreboardScoreText.cs" />
+    <Compile Include="Assets\Scripts\TrafficLight.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\Cinemachine\ReleaseNotes.txt" />

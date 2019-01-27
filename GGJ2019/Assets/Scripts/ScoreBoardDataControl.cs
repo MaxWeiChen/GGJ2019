@@ -73,7 +73,7 @@ public class ScoreBoardDataControl : MonoBehaviour
         file.Close();
     }
 
-    public void NewScore(int score)
+    public int NewScore(int score)
     {
         //判斷此分數能排在第幾名
         int place = Places - 1;
@@ -87,7 +87,7 @@ public class ScoreBoardDataControl : MonoBehaviour
 
         //無法進入排行榜
         if (place >= Places)
-            return;
+            return -1;
 
         //把此分數之後的排名向後挪一名
         for (int i = Places - 2; i >= place; i--)
@@ -100,6 +100,7 @@ public class ScoreBoardDataControl : MonoBehaviour
 
         //存入裝置
         SaveData();
+        return place;
     }
 
     //取得place名次的分數
