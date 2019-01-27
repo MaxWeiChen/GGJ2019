@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class createAMA : MonoBehaviour {
 	public static createAMA instance;
-	public GameObject[] people ; 
+	public List<GameObject> people  = new List<GameObject>(); 
 	private int nowPeopleNum = 0 ;
 	private int AMA_Ans ; 
 	private GameObject cam ;
@@ -15,10 +15,16 @@ public class createAMA : MonoBehaviour {
 	}
 
 	void Start () {
-			
-		AMA_Ans = UnityEngine.Random.Range( 0, people.Length ) ;
-		//print (AMA_Ans);
-		cam = gameObject.transform.GetChild(AMA_Ans).gameObject.transform.GetChild(1).gameObject ;
+        foreach (Transform item in transform)
+        {
+            people.Add(item.gameObject);
+        }
+        AMA_Ans = UnityEngine.Random.Range( 0, people.Count ) ;
+        //print (AMA_Ans);
+
+        cam = people[AMA_Ans].gameObject.transform.GetChild(1).gameObject;
+
+       // cam = gameObject.transform.GetChild(AMA_Ans).gameObject.transform.GetChild(1).gameObject ;
 		cam.SetActive(true);
 		//people [AMA_index].SetActive (true) ;
 
@@ -32,18 +38,11 @@ public class createAMA : MonoBehaviour {
 
 	public void setAns(){
 		cam.SetActive(false);
-		int temp = UnityEngine.Random.Range (0, people.Length);
-		//GameObject go = gameObject.transform.GetChild(temp).gameObject.GetComponent<people_hit>().getBefound() ;
-		//print ("test" + go.name);
-		//people_hit ph = go.GetComponent<people_hit> ();
-		while(gameObject.transform.GetChild(temp).gameObject.GetComponent<people_hit>().getBefound()){
-			temp = UnityEngine.Random.Range (0, people.Length);
-			//go = gameObject.transform.GetChild(temp).gameObject ;
-			//ph = go.GetComponent<people_hit> ();
-		}
+		int temp = UnityEngine.Random.Range (0, people.Count);
+		
 		AMA_Ans = temp;
 		//print (AMA_Ans);
-		cam = gameObject.transform.GetChild(AMA_Ans).gameObject.transform.GetChild(1).gameObject ;
+		cam = people[AMA_Ans].gameObject.transform.GetChild(1).gameObject ;
 		cam.SetActive(true);
 		//print (cam.name);
 
@@ -75,7 +74,7 @@ public class createAMA : MonoBehaviour {
 		return  AMA_Ans ;
 	}
 	public bool checkEnd(){
-		if ((++nowPeopleNum) >= people.Length){
+		if ((++nowPeopleNum) > people.Count){
 			print (nowPeopleNum);
 			return true; 
 		}else{print (nowPeopleNum);
@@ -84,7 +83,7 @@ public class createAMA : MonoBehaviour {
 		}
 	}
 	public GameObject getAnsObject(){
-		return gameObject.transform.GetChild (AMA_Ans).gameObject ;
+        return people[AMA_Ans];
 	}
 
 }

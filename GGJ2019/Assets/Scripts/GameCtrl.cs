@@ -68,7 +68,7 @@ public class GameCtrl : MonoBehaviour
         temCount = 1;
         rank = -1;
         Bonus = 0;
-        MaxPeople = createAMA.instance.people.Length;
+        MaxPeople = createAMA.instance.people.Count;
     }
 
     // Update is called once per frame
