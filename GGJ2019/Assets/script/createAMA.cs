@@ -9,7 +9,7 @@ public class createAMA : MonoBehaviour {
 	private int AMA_Ans ; 
 	private GameObject cam ;
 
-
+    
 	void Awake(){
 		instance = this;			
 	}

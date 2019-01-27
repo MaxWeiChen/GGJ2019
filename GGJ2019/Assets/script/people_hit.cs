@@ -7,16 +7,23 @@ public class people_hit : MonoBehaviour {
 	public int num ;
 	private bool jump = false ;
 	private bool befound = false ;
-
+    public FindManager findManager;
 	// Use this for initialization
 	void Start () {
-		//StartCoroutine(startwait ()) ;
+        //StartCoroutine(startwait ()) ;
+        if (!findManager)
+        {
+            findManager =Camera.main.GetComponent<FindManager>();
+        }
 	}
 	
 	// Update is called once per frame
 	void Update () {
-		
-	}
+        if (!findManager)
+        {
+            findManager = Camera.main.GetComponent<FindManager>();
+        }
+    }
 	void hit(){
 		if (!jump && CA.getAns() == num) {
             //GameObject ama = GameObject.Find("Main Camera");
@@ -33,10 +40,12 @@ public class people_hit : MonoBehaviour {
 		}
 	}
 
-	IEnumerator newPeople(){ 
-		yield return new WaitForSeconds(1.0f); // 等待x秒
+	IEnumerator newPeople(){
+        findManager.RecycleImage(); //圖片隱藏 重新計算秒數
+        yield return new WaitForSeconds(1.0f); // 等待x秒
 		CA.setAns() ;
-		jump = false ;
+        findManager.GrandMaCube = CA.getAnsObject();//生成新AMA放入腳本中對應
+        jump = false ;
 	}
 
 	public bool getBefound(){
