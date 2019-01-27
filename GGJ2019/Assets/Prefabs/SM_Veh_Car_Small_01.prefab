@@ -21,7 +21,7 @@ GameObject:
   - component: {fileID: 4767620245324788}
   - component: {fileID: 33719018721708326}
   - component: {fileID: 23306214195030528}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: SM_Veh_Car_Small_Plates
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -38,8 +38,23 @@ GameObject:
   - component: {fileID: 4005908767463674}
   - component: {fileID: 33381819976406424}
   - component: {fileID: 23155437559054354}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: SM_Veh_Car_Small_SteeringW
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!1 &1215503273980870
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 4875746630496846}
+  m_Layer: 8
+  m_Name: Target
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -55,7 +70,7 @@ GameObject:
   - component: {fileID: 4208353664221112}
   - component: {fileID: 33263179251333700}
   - component: {fileID: 23002649753763224}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: SM_Veh_Car_Small_Glass
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -72,7 +87,7 @@ GameObject:
   - component: {fileID: 4136421700820042}
   - component: {fileID: 33409067359472446}
   - component: {fileID: 23528446412705358}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: SM_Veh_Car_Small_Wheel_fl
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -93,7 +108,7 @@ GameObject:
   - component: {fileID: 65182551636565364}
   - component: {fileID: 114942050660904362}
   - component: {fileID: 114437122501820650}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: SM_Veh_Car_Small_01
   m_TagString: Car
   m_Icon: {fileID: 0}
@@ -110,7 +125,7 @@ GameObject:
   - component: {fileID: 4217129967777602}
   - component: {fileID: 33639275193108796}
   - component: {fileID: 23293783931359198}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: SM_Veh_Car_Small_Wheel_rl
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -127,7 +142,7 @@ GameObject:
   - component: {fileID: 4144300043824092}
   - component: {fileID: 33006717097374722}
   - component: {fileID: 23985630704317304}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: SM_Veh_Car_Small_Wheel_fr
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -144,7 +159,7 @@ GameObject:
   - component: {fileID: 4436905675453556}
   - component: {fileID: 33000232899530640}
   - component: {fileID: 23929980083085214}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: SM_Veh_Car_Small_Wheel_rr
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -181,6 +196,7 @@ Transform:
   - {fileID: 4144300043824092}
   - {fileID: 4217129967777602}
   - {fileID: 4436905675453556}
+  - {fileID: 4875746630496846}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -261,6 +277,19 @@ Transform:
   m_Children: []
   m_Father: {fileID: 4032727073170704}
   m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!4 &4875746630496846
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1215503273980870}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0.69, z: 2.27}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 4032727073170704}
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!23 &23002649753763224
 MeshRenderer:
@@ -601,7 +630,7 @@ Rigidbody:
   m_Drag: 0
   m_AngularDrag: 0.05
   m_UseGravity: 0
-  m_IsKinematic: 0
+  m_IsKinematic: 1
   m_Interpolate: 0
   m_Constraints: 112
   m_CollisionDetection: 0
@@ -615,8 +644,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 2.0683348, y: 1.5729153, z: 4.074531}
-  m_Center: {x: -0.012611389, y: 0.9477265, z: 0.12095243}
+  m_Size: {x: 2.0683348, y: 1.5729153, z: 4.460683}
+  m_Center: {x: -0.012611389, y: 0.9477265, z: 0.15715599}
 --- !u!114 &114437122501820650
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -644,7 +673,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f6cd7175447c2364a9b2a8c62cb65434, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Speed: 40
+  Speed: 15
+  StartSpeed: 5
+  a: 2
   moveing: 0
   dollyCart: {fileID: 114437122501820650}
-  RecyclePosition: 860
+  cd: 0
+  RayStartPoint: {fileID: 4875746630496846}
+  seconds: 5

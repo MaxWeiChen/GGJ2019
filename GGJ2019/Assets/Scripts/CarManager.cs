@@ -12,7 +12,8 @@ public class CarManager : MonoBehaviour {
     private Queue<Car> m_pool = new Queue<Car>();
     public static CarManager instance;
     public CinemachinePathBase[] Path;
-  
+    public int CarCount = 30;
+    public List<Car> carlist = new List<Car>();
     // Use this for initialization
    
     void Awake()
@@ -25,10 +26,6 @@ public class CarManager : MonoBehaviour {
             int pathrandom = Random.Range(0, Path.Length);
             go.GetComponent<CinemachineDollyCart>().m_Path = Path[pathrandom];
             go.transform.SetParent(transform);
-            if (Path[pathrandom].name == "Path")
-                go.GetComponent<Car>().RecyclePosition = 860;
-            else
-                go.GetComponent<Car>().RecyclePosition = 1014;
             
             go.transform.localPosition = transform.position;
             m_pool.Enqueue(go);
@@ -39,10 +36,12 @@ public class CarManager : MonoBehaviour {
     }
     void Start()
     {
-        for (int cnt = 0; cnt < 10; cnt++)
+        float lastPos = 0;
+        for (int cnt = 0; cnt < CarCount; cnt++)
         {
-           float route = Random.Range(30, 790);
-           ReUse(Vector3.zero, Quaternion.Euler(0, 0, 0),route);
+            float route = Random.Range(5,20);
+            lastPos += route;
+            ReUse(Vector3.zero, Quaternion.Euler(0, 0, 0), lastPos);
         }
     }
     // Update is called once per frame
@@ -50,7 +49,7 @@ public class CarManager : MonoBehaviour {
         timer += Time.deltaTime;
         if(timer>= carBornRate)
         {
-            ReUse(Vector3.zero, Quaternion.Euler(0, 0, 0),0);
+           
             timer = 0;
         }
 
@@ -63,6 +62,7 @@ public class CarManager : MonoBehaviour {
             reuse.transform.SetParent(transform);
             reuse.gameObject.SetActive(true);
             reuse.dollyCart.m_Position = Position;
+            carlist.Add(reuse);
         }
         else
         {
@@ -73,11 +73,7 @@ public class CarManager : MonoBehaviour {
             int pathrandom = Random.Range(0, Path.Length);
             go.GetComponent<CinemachineDollyCart>().m_Path = Path[pathrandom];
             go.GetComponent<Car>().dollyCart.m_Position = Position;
-            if (Path[pathrandom].name == "Path")
-                go.GetComponent<Car>().RecyclePosition = 860;
-            else
-                go.GetComponent<Car>().RecyclePosition = 1014;
-
+            carlist.Add(go);
         }
 
     }
@@ -85,7 +81,9 @@ public class CarManager : MonoBehaviour {
 
     public void Recovery(Car recovery)
     {
+        carlist.Remove(recovery);
         m_pool.Enqueue(recovery);
         recovery.gameObject.SetActive(false);
+        ReUse(Vector3.zero, Quaternion.Euler(0, 0, 0), 0);
     }
 }

@@ -21,7 +21,7 @@ GameObject:
   - component: {fileID: 4342770355986154}
   - component: {fileID: 33141979772171848}
   - component: {fileID: 23341028739358334}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: SM_Veh_Car_Van_Wheel_rl
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -38,7 +38,7 @@ GameObject:
   - component: {fileID: 4976219549820644}
   - component: {fileID: 33107818887434978}
   - component: {fileID: 23737659826443078}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: SM_Veh_Car_Van_Wheel_rr
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -55,7 +55,7 @@ GameObject:
   - component: {fileID: 4129728910373570}
   - component: {fileID: 33155483032994706}
   - component: {fileID: 23739516223988148}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: SM_Veh_Car_Van_Door_r_Glass
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -72,7 +72,7 @@ GameObject:
   - component: {fileID: 4311424460279240}
   - component: {fileID: 33196771839890268}
   - component: {fileID: 23866807581308760}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: SM_Veh_Car_Van_Door_l
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -89,7 +89,7 @@ GameObject:
   - component: {fileID: 4602637093138082}
   - component: {fileID: 33241222842955006}
   - component: {fileID: 23781378638995884}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: SM_Veh_Car_Van_Glass
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -106,7 +106,7 @@ GameObject:
   - component: {fileID: 4479869455022642}
   - component: {fileID: 33159078216537066}
   - component: {fileID: 23092619867179892}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: SM_Veh_Car_Van_Wheel_fr
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -123,7 +123,7 @@ GameObject:
   - component: {fileID: 4866156549229360}
   - component: {fileID: 33402951176403194}
   - component: {fileID: 23782219627907748}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: SM_Veh_Car_Van_SteeringW
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -140,7 +140,7 @@ GameObject:
   - component: {fileID: 4818805590130588}
   - component: {fileID: 33387589309218712}
   - component: {fileID: 23432507117995688}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: SM_Veh_Car_Van_Door_r
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -161,7 +161,7 @@ GameObject:
   - component: {fileID: 65232152082162602}
   - component: {fileID: 114735868370884288}
   - component: {fileID: 114925840680427724}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: SM_Veh_Car_Van_01
   m_TagString: Car
   m_Icon: {fileID: 0}
@@ -178,7 +178,7 @@ GameObject:
   - component: {fileID: 4943009654018814}
   - component: {fileID: 33028721159676526}
   - component: {fileID: 23304812497332606}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: SM_Veh_Car_Van_Plates
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -195,7 +195,7 @@ GameObject:
   - component: {fileID: 4405619050570072}
   - component: {fileID: 33386868012988874}
   - component: {fileID: 23379064329999842}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: SM_Veh_Car_Van_Door_l_Glass
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -212,7 +212,7 @@ GameObject:
   - component: {fileID: 4510253021793368}
   - component: {fileID: 33708573852432554}
   - component: {fileID: 23420016873218314}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: SM_Veh_Car_Van_Wheel_fl
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -889,7 +889,7 @@ Rigidbody:
   m_Drag: 0
   m_AngularDrag: 0.05
   m_UseGravity: 0
-  m_IsKinematic: 0
+  m_IsKinematic: 1
   m_Interpolate: 0
   m_Constraints: 112
   m_CollisionDetection: 0
@@ -916,10 +916,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f6cd7175447c2364a9b2a8c62cb65434, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Speed: 40
+  Speed: 15
+  StartSpeed: 5
+  a: 2
   moveing: 0
   dollyCart: {fileID: 114925840680427724}
-  RecyclePosition: 860
+  cd: 0
+  seconds: 5
 --- !u!114 &114925840680427724
 MonoBehaviour:
   m_ObjectHideFlags: 1
