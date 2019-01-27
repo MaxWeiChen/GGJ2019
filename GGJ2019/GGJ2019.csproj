@@ -303,6 +303,7 @@
     <Compile Include="Assets\script\createAMA.cs" />
     <Compile Include="Assets\script\people_found.cs" />
     <Compile Include="Assets\script\people_hit.cs" />
+    <Compile Include="Assets\script\showPeople.cs" />
     <Compile Include="Assets\Scripts\CameraExpoler.cs" />
     <Compile Include="Assets\Scripts\Car.cs" />
     <Compile Include="Assets\Scripts\CarManager.cs" />
