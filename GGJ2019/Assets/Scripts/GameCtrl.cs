@@ -10,6 +10,7 @@ public class GameCtrl : MonoBehaviour {
     public AudioClip GetResult;
     private AudioSource AS;
     public static bool timeout;
+    public static bool complete;
     //private GameObject delete;
     private GameObject replay;
     private GameObject exit;
@@ -18,6 +19,10 @@ public class GameCtrl : MonoBehaviour {
     public Text AMA_text;
     public Text Score_text;
     int temCount;
+    int Bonus;
+    int MaxPeople;
+
+
 
     private int AMAcount;
     float time;
@@ -30,6 +35,7 @@ public class GameCtrl : MonoBehaviour {
         time = 60f;
         AMAcount = 0;
         timeout = false;
+        complete = false;
         AS.clip = BGM;
 
 
@@ -50,8 +56,10 @@ public class GameCtrl : MonoBehaviour {
         BG = GameObject.Find("BackGround");
         BG.SetActive(false);
 
-        temCount = 0;
+        temCount = 1;
         SpeedUp = false;
+        Bonus = 0;
+        MaxPeople = createAMA.instance.people.Length;
     }
 	
 	// Update is called once per frame
@@ -60,6 +68,11 @@ public class GameCtrl : MonoBehaviour {
             time = time - Time.deltaTime;
             Time_text.text = "Time : " + (float)((int)((time-4.7f) * 10)) / 10;
             AMA_text.text = "Capture : " + AMAcount;
+            if (complete)
+            {
+                Bonus = Bonus + (int)(Time.deltaTime*100);
+                Score_text.text = "Bonus: $" + Bonus;
+            }
         }
         else
         {
@@ -68,16 +81,20 @@ public class GameCtrl : MonoBehaviour {
 
             if (temCount < AMAcount*5)
             {
-                Score_text.text = "Bonus: $" + temCount * 20;
+                Bonus = Bonus + 20;
+                Score_text.text = "Bonus: $" + (Bonus);
                 temCount = temCount + 1;
+                AMA_text.text = "Capture : " + (AMAcount-temCount/5);
             }
             else if (temCount == AMAcount*5)
             {
-                Score_text.text = "Bonus: $" + temCount * 20;
+                Bonus = Bonus + 20;
+                Score_text.text = "Bonus: $" + (Bonus );
                 temCount = temCount + 1;
+                AMA_text.text = "Capture : " + (AMAcount - temCount/5);
                 StartCoroutine(Result(0.5f));
                 AS.Stop();
-
+                
 
             }
 
@@ -87,6 +104,7 @@ public class GameCtrl : MonoBehaviour {
         {
             AS.pitch = 1.6f - 2.4f*(time / BGM.length);
         }
+
 		
 	}
 
@@ -107,14 +125,16 @@ public class GameCtrl : MonoBehaviour {
         replay.SetActive(true);
         BG.SetActive(true);
         AS.clip = GetResult;
-        AS.pitch = 1;
+        AS.pitch = 1.3f;
         AS.loop = true;
         AS.Play();
+        Time.timeScale = 1;
     }
     IEnumerator Result(float second)
     {
         yield return new WaitForSeconds(second);
-        ScoreBoardDataControl.instance.NewScore(AMAcount * 100);
+        ScoreBoardDataControl.instance.NewScore(Bonus);
+        
     }
 
     public void AddAMA()
@@ -123,6 +143,17 @@ public class GameCtrl : MonoBehaviour {
         {
             AMAcount = AMAcount + 1;
             AS.PlayOneShot(GetCoin, 3f);
+            if(AMAcount >= MaxPeople)
+            {
+                complete = true;
+                Time.timeScale = 4;
+                BG.SetActive(true);
+                AS.clip = GetResult;
+                AS.pitch = 1.5f;
+                AS.loop = true;
+                AS.Play();
+                
+            }
         }
     }
     public void Exit()

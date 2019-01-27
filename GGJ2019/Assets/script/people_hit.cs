@@ -23,10 +23,13 @@ public class people_hit : MonoBehaviour {
             GameObject.Find("Main Camera").GetComponent<GameCtrl>().AddAMA();
 			jump = true ;
 			befound = true ;
-			print (gameObject.name);
+
+
 			Rigidbody rig = gameObject.GetComponent<Rigidbody> ();
 			rig.AddForce(Vector3.up * 200.0f);
-			StartCoroutine(newPeople ()) ;
+			if(!CA.checkEnd()){
+				StartCoroutine(newPeople ()) ;
+			}
 		}
 	}
 
