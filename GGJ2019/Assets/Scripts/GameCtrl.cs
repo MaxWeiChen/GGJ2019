@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using GooglePlayGames;
 
 public class GameCtrl : MonoBehaviour
 {
@@ -30,7 +31,7 @@ public class GameCtrl : MonoBehaviour
     private int AMAcount;
     public float time = 60f;
     public static GameCtrl _instance;
-   
+    string boardId = "CgkIzf6CquASEAIQAQ";
     void Addtime()
     {
         time += 5.0f;
@@ -38,6 +39,11 @@ public class GameCtrl : MonoBehaviour
     // Use this for initialization
     void Start()
     {
+        //PlayGamesClientConfiguration config = new PlayGamesClientConfiguration.Builder().Build();
+        //PlayGamesPlatform.DebugLogEnabled = true;
+        //PlayGamesPlatform.InitializeInstance(config);
+        //PlayGamesPlatform.Activate();
+       
         AS = this.GetComponent<AudioSource>();
         
         AMAcount = 0;
@@ -106,6 +112,7 @@ public class GameCtrl : MonoBehaviour
                 Score_text.text = "Bonus: $" + (Bonus);
                 temCount = temCount + 1;
                 AMA_text.text = "Capture : " + (AMAcount - temCount / 5);
+               
             }
             else if (temCount == AMAcount * 5)
             {
@@ -114,15 +121,27 @@ public class GameCtrl : MonoBehaviour
                 temCount = temCount + 1;
                 AMA_text.text = "Capture : " + (AMAcount - temCount / 5);
                 StartCoroutine(Result(0.5f));
+
                 AS.Stop();
 
 
             }
 
+           
+            //// 更新分數
+            //PlayGamesPlatform.Instance.ReportScore(Bonus, boardId, (bool success) =>
+            //{
+            //    if (success)
+            //    {
+            //        Debug.Log("log to leaderboard succeeded");
+            //    }
+            //    else
+            //    {
+            //        Debug.Log("log to leaderboard failed");
+            //    }
+            //});
 
         }
-       
-
     }
 
     IEnumerator NormalMusic(float second)
@@ -131,7 +150,7 @@ public class GameCtrl : MonoBehaviour
         {
             if (time < 15)
             {
-                AS.pitch = 1f + (time/60.0f);
+                AS.pitch = 1f + (time/80.0f);
             }
             
             yield return new WaitForFixedUpdate();
@@ -152,7 +171,21 @@ public class GameCtrl : MonoBehaviour
     IEnumerator Result(float second)
     {
         yield return new WaitForSeconds(second);
-        rank = ScoreBoardDataControl.instance.NewScore(Bonus);
+        //PlayGamesPlatform.Instance.ShowLeaderboardUI();
+
+        // 更新分數
+        PlayGamesPlatform.Instance.ReportScore(Bonus, boardId, (bool success) =>
+        {
+            if (success)
+            {
+                Debug.Log("log to leaderboard succeeded");
+            }
+            else
+            {
+                Debug.Log("log to leaderboard failed");
+            }
+        });
+        //rank = ScoreBoardDataControl.instance.NewScore(Bonus);
         ScoreColorChange = true;
     }
 

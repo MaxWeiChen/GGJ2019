@@ -28,7 +28,7 @@ public class people_hit : MonoBehaviour {
     }
 	void hit(){
 		if (!jump && CA.getAns() == num) {
-            print("打");
+           
             GameObject.Find("Main Camera").GetComponent<GameCtrl>().AddAMA();
 			jump = true ;
 			befound = true ;

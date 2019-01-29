@@ -5,6 +5,8 @@ using Cinemachine;
 using System;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
+using GooglePlayGames;
+using GooglePlayGames.BasicApi;
 
 public class MainMenuController : MonoBehaviour
 {
@@ -19,8 +21,22 @@ public class MainMenuController : MonoBehaviour
 
 	private CinemachineTrackedDolly trackedDolly = null;
 	private bool isStartGame = false;
-
-	private void Start()
+    private void Awake()
+    {
+       // PlayGamesClientConfiguration config = new PlayGamesClientConfiguration.Builder().Build();
+        //PlayGamesPlatform.InitializeInstance(config);
+       
+        //Social.localUser.Authenticate((bool success) =>
+        //{
+        //    // handle success or failure
+        //    if (success)
+        //    {
+        //        //updateScore();
+        //        PlayGamesPlatform.Activate();
+        //    }
+        //});
+    }
+    private void Start()
 	{
 		if(vcam == null) return;
 		trackedDolly = vcam.GetCinemachineComponent(CinemachineCore.Stage.Body) as CinemachineTrackedDolly;
@@ -28,13 +44,10 @@ public class MainMenuController : MonoBehaviour
 
 	private void Update()
 	{
-		if(Input.GetMouseButtonUp(0))
-		{
-			StartGame();
-		}
+		
 	}
 
-	private void StartGame()
+	public void StartGame()
 	{
 		if(isStartGame) return;
 
@@ -43,8 +56,8 @@ public class MainMenuController : MonoBehaviour
 		desc.text = "Loading...";
 		startAudio.Play();
 	}
-
-	private void FixedUpdate()
+   
+    private void FixedUpdate()
 	{
 		if(trackedDolly == null) return;
 
