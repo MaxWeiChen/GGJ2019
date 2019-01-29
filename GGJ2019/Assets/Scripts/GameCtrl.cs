@@ -127,19 +127,8 @@ public class GameCtrl : MonoBehaviour
 
             }
 
-           
-            //// 更新分數
-            //PlayGamesPlatform.Instance.ReportScore(Bonus, boardId, (bool success) =>
-            //{
-            //    if (success)
-            //    {
-            //        Debug.Log("log to leaderboard succeeded");
-            //    }
-            //    else
-            //    {
-            //        Debug.Log("log to leaderboard failed");
-            //    }
-            //});
+
+          
 
         }
     }
@@ -173,11 +162,15 @@ public class GameCtrl : MonoBehaviour
         yield return new WaitForSeconds(second);
         //PlayGamesPlatform.Instance.ShowLeaderboardUI();
 
+        
+        rank = ScoreBoardDataControl.instance.NewScore(Bonus);
+
         // 更新分數
         PlayGamesPlatform.Instance.ReportScore(Bonus, boardId, (bool success) =>
         {
             if (success)
             {
+                PlayGamesPlatform.Instance.ShowLeaderboardUI(boardId);
                 Debug.Log("log to leaderboard succeeded");
             }
             else
@@ -185,7 +178,7 @@ public class GameCtrl : MonoBehaviour
                 Debug.Log("log to leaderboard failed");
             }
         });
-        //rank = ScoreBoardDataControl.instance.NewScore(Bonus);
+        
         ScoreColorChange = true;
     }
 
@@ -195,9 +188,24 @@ public class GameCtrl : MonoBehaviour
         if (!timeout)
         {
             AMAcount = AMAcount + 1;
+            if (AMAcount == 1)
+            {
+                Social.ReportProgress("CgkIzf6CquASEAIQAw", 100.0f, (bool success) => {
+                    // handle success or failure
+                });
+            }
+            else if (AMAcount == 5)
+            {
+                Social.ReportProgress("CgkIzf6CquASEAIQBQ", 100.0f, (bool success) => {
+                    // handle success or failure
+                });
+            }
             AS.PlayOneShot(GetCoin, 3f);
             if (AMAcount >= MaxPeople)
             {
+                Social.ReportProgress("CgkIzf6CquASEAIQBg", 100.0f, (bool success) => {
+                    // handle success or failure
+                });
                 complete = true;
                 Time.timeScale = 4;
                 BG.SetActive(true);

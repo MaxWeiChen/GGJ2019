@@ -67,7 +67,7 @@ public class FindManager : MonoBehaviour {
                 Vector2 dir = (outLineTarget.GetComponent<RectTransform>().anchoredPosition - arrow.GetComponent<RectTransform>().anchoredPosition).normalized;
                 outLineTarget.GetComponent<RectTransform>().up = dir;
                 float distance = Vector3.Distance(outLineTarget.GetComponent<RectTransform>().anchoredPosition, arrow.GetComponent<RectTransform>().anchoredPosition);
-                if(distance>5)
+                if(distance>20)
                     outLineTarget.GetComponent<RectTransform>().anchoredPosition -= dir* _Speed * Time.deltaTime * distance;
                 if ((Mathf.Abs(arrow.GetComponent<RectTransform>().anchoredPosition.x) > (canvas.GetComponent<RectTransform>().sizeDelta.x / 2.0f))
                     || Mathf.Abs(arrow.GetComponent<RectTransform>().anchoredPosition.y) > (canvas.GetComponent<RectTransform>().sizeDelta.y / 2.0f))

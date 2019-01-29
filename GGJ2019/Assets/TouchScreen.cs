@@ -9,7 +9,7 @@ public class TouchScreen : MonoBehaviour {
     
     public float ScrollSpeed = 150;
 
-    public float maxScoll = 80;
+    public float maxScoll = 70;
     public float minScoll = 15;
     void Start()
     {
@@ -32,6 +32,23 @@ public class TouchScreen : MonoBehaviour {
         DeskopInput();
 
 #endif
+
+
+        if(transform.position.x > 105)
+        {
+            transform.position = new Vector3(105, transform.position.y, transform.position.z);
+        }else if (transform.position.x < -100)
+        {
+            transform.position = new Vector3(-100, transform.position.y, transform.position.z);
+        }
+        else if (transform.position.z < -135)
+        {
+            transform.position = new Vector3(transform.position.x, transform.position.y, -135);
+        }
+        else if (transform.position.z > 130)
+        {
+            transform.position = new Vector3(transform.position.x, transform.position.y,130);
+        }
     }
 
     void DeskopInput()
@@ -45,8 +62,8 @@ public class TouchScreen : MonoBehaviour {
             //滑鼠左鍵
         if (Input.GetMouseButton(0))
             {
-//移動攝影機位置
-Camera.main.transform.Translate(new Vector3(-mx * Time.deltaTime * speed, -my * Time.deltaTime * speed, 0));
+                //移動攝影機位置
+                Camera.main.transform.Translate(new Vector3(-mx * Time.deltaTime * speed, -my * Time.deltaTime * speed, 0));
             }
         }
 
@@ -183,9 +200,16 @@ UnityEngine.Touch touch = UnityEngine.Input.touches[i];
                         {
                             move += move2.y;
                         }
-
+                        if (transform.position.y > minScoll && move > 0)
+                        {
+                            Camera.main.transform.Translate(0, 0, move * Time.deltaTime);
+                        }
+                        else if (transform.position.y <maxScoll && move < 0)
+                        {
+                            Camera.main.transform.Translate(0, 0, move * Time.deltaTime);
+                        }
                         //當兩指距離越遠，Z位置加的越多，相反之
-                        Camera.main.transform.Translate(0, 0, move * Time.deltaTime);
+                       
                     }
                 }
             }//end for
