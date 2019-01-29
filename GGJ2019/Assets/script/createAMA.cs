@@ -11,15 +11,17 @@ public class createAMA : MonoBehaviour {
 
     
 	void Awake(){
-		instance = this;			
-	}
-
-	void Start () {
+		instance = this;
         foreach (Transform item in transform)
         {
             people.Add(item.gameObject);
         }
-        AMA_Ans = UnityEngine.Random.Range( 0, people.Count ) ;
+        AMA_Ans = UnityEngine.Random.Range(0, people.Count);
+    }
+
+	void Start () {
+       
+       
         //print (AMA_Ans);
 
         cam = people[AMA_Ans].gameObject.transform.GetChild(1).gameObject;
@@ -31,7 +33,7 @@ public class createAMA : MonoBehaviour {
 		//print("start") ;
 	}
 	
-
+    
 	void Update () {
 
 	}
@@ -73,15 +75,15 @@ public class createAMA : MonoBehaviour {
 	public int getAns(){
 		return  AMA_Ans ;
 	}
-	public bool checkEnd(){
-		if ((++nowPeopleNum) > people.Count){
-			print (nowPeopleNum);
-			return true; 
-		}else{print (nowPeopleNum);
+	//public bool checkEnd(){
+	//	if ((++nowPeopleNum) > people.Count){
+	//		print (nowPeopleNum);
+	//		return true; 
+	//	}else{print (nowPeopleNum);
 		
-			return false;
-		}
-	}
+	//		return false;
+	//	}
+	//}
 	public GameObject getAnsObject(){
         return people[AMA_Ans];
 	}

@@ -17,6 +17,7 @@ public class people_found : MonoBehaviour {
 		{
 			//Debug.DrawLine(Camera.main.transform.position, hit.transform.position, Color.red, 0.1f, true);
 			if(hit.collider.tag == "People"){
+                
 				hit.collider.SendMessage("hit");
 			}
 			//print ("hi " + hit.collider.name);

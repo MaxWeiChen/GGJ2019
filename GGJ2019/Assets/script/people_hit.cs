@@ -9,6 +9,7 @@ public class people_hit : MonoBehaviour {
 	private bool jump = false ;
 	private bool befound = false ;
     public FindManager findManager;
+    public bool find = false;
 	// Use this for initialization
 	void Start () {
         //StartCoroutine(startwait ()) ;
@@ -27,27 +28,25 @@ public class people_hit : MonoBehaviour {
     }
 	void hit(){
 		if (!jump && CA.getAns() == num) {
-            //GameObject ama = GameObject.Find("Main Camera");
+            print("打");
             GameObject.Find("Main Camera").GetComponent<GameCtrl>().AddAMA();
 			jump = true ;
 			befound = true ;
 			showPeople.SP.showpeo(num);
-
 			Rigidbody rig = gameObject.GetComponent<Rigidbody> ();
 			rig.AddForce(Vector3.up * 200.0f);
-			if(!CA.checkEnd()){
-				StartCoroutine(newPeople ()) ;
-			}
-		}
+            findManager.RecycleImage(); //圖片隱藏 重新計算秒數
+            CA.setAns();
+            findManager.GrandMaCube = CA.getAnsObject();//生成新AMA放入腳本中對應
+            Invoke("CloseJump", 1);
+           
+         
+        }
 	}
 
-	IEnumerator newPeople(){
-        findManager.RecycleImage(); //圖片隱藏 重新計算秒數
-        yield return new WaitForSeconds(1.0f); // 等待x秒
-		CA.setAns() ;
-        findManager.GrandMaCube = CA.getAnsObject();//生成新AMA放入腳本中對應
-        jump = false ;
-	}
+	void CloseJump(){
+        jump = false;
+    }
 
 	public bool getBefound(){
 		return befound;

@@ -28,14 +28,18 @@ public class GameCtrl : MonoBehaviour
     int MaxPeople;
 
     private int AMAcount;
-    float time;
-
-
+    public float time = 60f;
+    public static GameCtrl _instance;
+   
+    void Addtime()
+    {
+        time += 5.0f;
+    }
     // Use this for initialization
     void Start()
     {
         AS = this.GetComponent<AudioSource>();
-        time = 60f;
+        
         AMAcount = 0;
         timeout = false;
         complete = false;
@@ -43,14 +47,14 @@ public class GameCtrl : MonoBehaviour
         ScoreColorChange = false;
         AS.clip = BGM;
 
-
+        AS.loop = true;
 
         if (AS.clip != null)
         {
             AS.Play();
-            time = BGM.length;
+            //time = BGM.length;
         }
-        StartCoroutine(NormalMusic(time * 3 / 4));
+        StartCoroutine(NormalMusic(time));
 
         //delete = GameObject.Find("DeleteButton");
         //delete.SetActive(false);
@@ -77,7 +81,7 @@ public class GameCtrl : MonoBehaviour
         if (!timeout)
         {
             time = time - Time.deltaTime;
-            Time_text.text = "Time : " + (float)((int)((time - 4.7f) * 10)) / 10;
+            Time_text.text = "Time : " + time.ToString("0.0");
             AMA_text.text = "Capture : " + AMAcount;
             if (complete)
             {
@@ -117,29 +121,24 @@ public class GameCtrl : MonoBehaviour
 
 
         }
-        if (SpeedUp)
-        {
-            AS.pitch = 1.6f - 2.4f * (time / BGM.length);
-        }
-
+       
 
     }
 
     IEnumerator NormalMusic(float second)
     {
-        yield return new WaitForSeconds(second);
-        SpeedUp = true;
+        while (time > 0)
+        {
+            if (time < 15)
+            {
+                AS.pitch = 1f + (time/60.0f);
+            }
+            
+            yield return new WaitForFixedUpdate();
+        }
 
-        StartCoroutine(MusicEnd(second / 3 - 4.7f));
-
-    }
-    IEnumerator MusicEnd(float second)
-    {
-        yield return new WaitForSeconds(second);
         timeout = true;
-        //delete.SetActive(true);
-        //exit.SetActive(true);
-        //replay.SetActive(true);
+
         ScoreBoard.SetActive(true);
         BG.SetActive(true);
         AS.clip = GetResult;
@@ -147,7 +146,9 @@ public class GameCtrl : MonoBehaviour
         AS.loop = true;
         AS.Play();
         Time.timeScale = 1;
+
     }
+    
     IEnumerator Result(float second)
     {
         yield return new WaitForSeconds(second);
@@ -157,6 +158,7 @@ public class GameCtrl : MonoBehaviour
 
     public void AddAMA()
     {
+        Addtime();
         if (!timeout)
         {
             AMAcount = AMAcount + 1;
